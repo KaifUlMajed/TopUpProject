@@ -24,14 +24,15 @@
 	            <ul class="nav navbar-nav navbar-right">
 					<li><a href="index.php">Home</a></li>
 					<li><a href="loginregistration.html">Login/SignUp</a></li>
-	                <!-- <li class="dropdown">
+	                <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guide <span class="caret"></span>
 	                    </a>
 	                    <ul class="dropdown-menu">
 	                        <li><a href="#">Add to cart</a></li>
 	                        <li><a href="#">Upload Prescription</a></li>
 	                    </ul>
-                    </li> -->
+						<li><a href="index.php">Logout</a></li>
+                    </li>
 				</ul>
 				<input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
 				<input type="button" value = "search" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;"/>
