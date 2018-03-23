@@ -18,7 +18,7 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a href="index.php" class="navbar-brand"><img src="images/logo.png" alt="logo"></a>
+	            <a href="index.php" class="navbar-brand"><img src="images/logomed.png" alt="logomed"></a>
 	        </div>
 	        <div class="collapse navbar-collapse" id="myMenu">
 	            <ul class="nav navbar-nav navbar-right">
