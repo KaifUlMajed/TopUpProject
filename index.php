@@ -22,15 +22,16 @@
 	        </div>
 	        <div class="collapse navbar-collapse" id="myMenu">
 	            <ul class="nav navbar-nav navbar-right">
-	                <li><a href="index.php">Home</a></li>
-	                <li class="dropdown">
+					<li><a href="index.php">Home</a></li>
+					<li><a href="loginregistration.html">Login/SignUp</a></li>
+	                <!-- <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guide <span class="caret"></span>
 	                    </a>
 	                    <ul class="dropdown-menu">
 	                        <li><a href="mother-guide.php">Mother</a></li>
 	                        <li><a href="#">Child</a></li>
 	                    </ul>
-                    </li>
+                    </li> -->
 				</ul>
 				<input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
 				<input type="button" value = "search" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;"/>
@@ -92,7 +93,7 @@
 	<hr>
 
 	<!-- ***** Category gallery section start ***** -->
-	<section>
+	<!-- <section>
 		<div class="container">
 			<div class="row thumbnail well text-center">
 				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
@@ -109,7 +110,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- ***** Category gallery section end ***** -->
 
 	<hr>
@@ -148,7 +149,7 @@
 	<hr>
 
 	<!-- ****** Mother's guide section start ****** -->
-	<section>
+	<!-- <section>
 		<div class="container">
 			<div class="row well">
 				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
@@ -162,7 +163,7 @@
 				</div>
 			</div>
 		</div>
-	</section>
+	</section> -->
 	<!-- ****** Mother's guide section end ****** -->
 
 	<hr>
