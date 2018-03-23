@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Mother's Care</title>
+	<title>Shustho naki?</title>
 </head>
 <body>
 	<!-- ******* Nav Bar start ******** -->
@@ -24,11 +24,11 @@
 	            <ul class="nav navbar-nav navbar-right">
 	                <li><a href="index.php">Home</a></li>
 	                <li class="dropdown">
-	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Guide <span class="caret"></span>
+	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order Now <span class="caret"></span>
 	                    </a>
 	                    <ul class="dropdown-menu">
-	                        <li><a href="mother-guide.php">Mother</a></li>
-	                        <li><a href="#">Child</a></li>
+	                        <li><a href="#">Add to cart</a></li>
+	                        <li><a href="#">Upload Prescription</a></li>
 	                    </ul>
                     </li>
 				</ul>
