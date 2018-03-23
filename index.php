@@ -31,7 +31,9 @@
 	                        <li><a href="#">Child</a></li>
 	                    </ul>
                     </li>
-	            </ul>
+				</ul>
+				<input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
+				<input type="button" value = "search" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;"/>
 	        </div>
 	    </div>
 	</nav>
