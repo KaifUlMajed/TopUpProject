@@ -12,8 +12,9 @@ import javax.persistence.*;
  * @author Kaif Ul Majed
  */
 @Entity
+@Table(name = "USERS")
 public class User {
-    @Id 
+    @Id @GeneratedValue
     private int id;
     private String username;
     private String password;

@@ -53,10 +53,10 @@ public class ManageUsers {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            List students = session.createQuery("FROM User").list();
-            for (Iterator it = students.iterator(); it.hasNext();){
+            List users = session.createQuery("FROM User").list();
+            for (Iterator it = users.iterator(); it.hasNext();){
                 User user = (User) it.next();
-                if (user.getUsername().equals(id) && (user.getPassword().equals(pass))){
+                if (user.getUsername().equals(id) && user.getPassword().equals(pass)){
                     u = user;
                     break;
                 }
