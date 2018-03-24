@@ -55,7 +55,7 @@
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="images/slider-image01.jpg" alt="" class="img-responsive">
+                            <img src="images/pharma2.jpg" alt="" class="img-responsive">
                             <div class="carousel-caption">
                                 <h4>Mother and Child care</h4>
                             </div>
