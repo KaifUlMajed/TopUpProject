@@ -1,3 +1,10 @@
+<%-- 
+    Document   : loginregistration
+    Created on : Mar 24, 2018, 5:21:04 PM
+    Author     : Riad
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,4 +157,5 @@
 	<script src="js/custom.js"></script>
 </body>
 </html>
+
 
