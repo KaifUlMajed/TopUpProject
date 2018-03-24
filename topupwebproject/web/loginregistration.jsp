@@ -53,9 +53,9 @@
        <div class="row">
         <div class="col-lg-6 col-sm-12">
             <h1>Registration</h1>
-            <form action="#" method="POST">
-                <input type="text" name="id" placeholder="ID"/><br>
-                <input type="text" name="pass" placeholder="Password"/><br>
+            <form action="RegProcess" method="POST">
+                <input type="text" name="username" placeholder="ID"/><br>
+                <input type="text" name="password" placeholder="Password"/><br>
                 <input type="text" name="repass" placeholder="Re-enter Password"/><br>
                 <input type="text" name="address" placeholder="Address"/><br>
                 <input type="text" name="mobile" placeholder="Mobile"/><br>
@@ -65,9 +65,9 @@
         </div>
         <div class="col-lg-6 col-sm-12">
             <h1>Login </h1>
-            <form action="#" method="POST">
-                <input type="text" name="id" placeholder="ID"/> <br>
-                <input type="text" name="pass" placeholder="Password"/> <br>
+            <form action="LoginProcess" method="POST">
+                <input type="text" name="username" placeholder="ID"/> <br>
+                <input type="text" name="password" placeholder="Password"/> <br>
                 <input type="submit" value="Login"/><br>
             </form>                
         </div>

@@ -47,7 +47,7 @@ public class ManageUsers {
         }
         return id;        
     }
-    public User getUSer(String id, String pass){
+    public User getUser(String id, String pass){
         User u = null;
         Session session = factory.openSession();
         Transaction tx = null;

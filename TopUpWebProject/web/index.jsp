@@ -29,8 +29,8 @@
 	        </div>
 	        <div class="collapse navbar-collapse" id="myMenu">
 	            <ul class="nav navbar-nav navbar-right">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="loginregistration.html">Login/SignUp</a></li>
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="LogRegServlet">Login/SignUp</a></li>
 	                <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order Now <span class="caret"></span>
 	                    </a>
