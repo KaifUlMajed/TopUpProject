@@ -3,7 +3,13 @@
     Created on : Mar 24, 2018, 5:21:04 PM
     Author     : Riad
 --%>
-
+<%@ page import = "java.io.*,java.util.*" %>
+<%
+String msg=(String)session.getAttribute("registration");
+if(msg==null){
+    msg=" ";
+}
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -29,8 +35,8 @@
 	        </div>
 	        <div class="collapse navbar-collapse" id="myMenu">
 	            <ul class="nav navbar-nav navbar-right">
-					<li><a href="index.php">Home</a></li>
-					<li><a href="loginregistration.html">Login/SignUp</a></li>
+					<li><a href="index.jsp">Home</a></li>
+					<li><a href="loginregistration.jsp">Login/SignUp</a></li>
 	                <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order Now <span class="caret"></span>
 	                    </a>
@@ -38,7 +44,7 @@
 	                        <li><a href="#">Add to cart</a></li>
 	                        <li><a href="#">Upload Prescription</a></li>
 	                    </ul>
-						<li><a href="index.php">Logout</a></li>
+						
                     </li>
 				</ul>
 				<input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
@@ -53,10 +59,12 @@
        <div class="row">
         <div class="col-lg-6 col-sm-12">
             <h1>Registration</h1>
-            <form action="#" method="POST">
-                <input type="text" name="id" placeholder="ID"/><br>
-                <input type="text" name="pass" placeholder="Password"/><br>
-                <input type="text" name="repass" placeholder="Re-enter Password"/><br>
+            <h2><%=msg%></h2>
+            <%session.setAttribute("registration", null);%>
+            <form action="RegProcess" method="POST">
+                <input type="text" name="username" placeholder="Username"/><br>
+                <input type="password" name="password" placeholder="Password"/><br>
+                <input type="password" name="repass" placeholder="Re-enter Password"/><br>
                 <input type="text" name="address" placeholder="Address"/><br>
                 <input type="text" name="mobile" placeholder="Mobile"/><br>
                 <input type="text" name="email" placeholder="E-mail"/><br>
@@ -65,9 +73,9 @@
         </div>
         <div class="col-lg-6 col-sm-12">
             <h1>Login </h1>
-            <form action="#" method="POST">
-                <input type="text" name="id" placeholder="ID"/> <br>
-                <input type="text" name="pass" placeholder="Password"/> <br>
+            <form action="LoginProcess" method="POST">
+                <input type="text" name="username" placeholder="Username"/> <br>
+                <input type="password" name="password" placeholder="Password"/> <br>
                 <input type="submit" value="Login"/><br>
             </form>                
         </div>
@@ -107,9 +115,9 @@
 	                <h3>Popular links</h3>
 	                <hr>
 	                <ul class="popular-link">
-	                    <li><a href="index.php">Home</a></li>
-	                    <li><a href="about.html">About us</a></li>
-	                    <li><a href="contact.html">Contact us</a></li>
+	                    <li><a href="index.jsp">Home</a></li>
+	                    <li><a href="about.jsp">About us</a></li>
+	                    <li><a href="contact.jsp">Contact us</a></li>
 	                    <li><a href="">FAQ</a></li>
 	                    <li><a href="https://www.google.com.bd/maps/place/BRAC+University/@23.7801728,90.4050027,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c7715a40c603:0xec01cd75f33139f5!8m2!3d23.7801679!4d90.4071914?hl=en" target="_blank">Site map</a></li>
 	                </ul>
