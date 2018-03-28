@@ -93,7 +93,11 @@ public class LoginProcess extends HttpServlet {
             
         }
         else{
-            out.print("Incorrect username or password");
+            HttpSession session=request.getSession();
+            session.setAttribute("loginstatus", "Enter correct Username and password");
+            //response.sendRedirect("Loggedin");
+            view=request.getRequestDispatcher("loginregistration.jsp");
+            view.forward(request, response);
         }
         out.close();
     }

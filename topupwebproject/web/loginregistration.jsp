@@ -9,6 +9,10 @@ String msg=(String)session.getAttribute("registration");
 if(msg==null){
     msg=" ";
 }
+String s=(String)session.getAttribute("loginstatus");
+if(s==null){
+    s=" ";
+}
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -72,7 +76,11 @@ if(msg==null){
             </form>
         </div>
         <div class="col-lg-6 col-sm-12">
+            
+            
             <h1>Login </h1>
+            <h2><%=s%></h2>
+            <%session.setAttribute("loginstatus", null);%>
             <form action="LoginProcess" method="POST">
                 <input type="text" name="username" placeholder="Username"/> <br>
                 <input type="password" name="password" placeholder="Password"/> <br>
