@@ -12,6 +12,10 @@
         <servlet-name>RegProcess</servlet-name>
         <servlet-class>controller.RegProcess</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutProcess</servlet-name>
+        <servlet-class>controller.LogoutProcess</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LogRegServlet</servlet-name>
         <url-pattern>/LogRegServlet</url-pattern>
@@ -24,9 +28,13 @@
         <servlet-name>RegProcess</servlet-name>
         <url-pattern>/RegProcess</url-pattern>
     </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutProcess</servlet-name>
+        <url-pattern>/LogoutProcess</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
-            30
+            15
         </session-timeout>
     </session-config>
     <welcome-file-list>

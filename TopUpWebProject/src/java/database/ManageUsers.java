@@ -30,13 +30,18 @@ public class ManageUsers {
             throw new ExceptionInInitializerError(ex);
         }
     }
-    public Integer addUser(User u){
-        Integer id = null;
+    public String addUser(User u){
+        User tmp=checkUsername(u.getUsername());
+        if(tmp!=null){
+            return "Username already exists!";
+        }
+        String id = null;
         Session session = factory.openSession();
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            id = (Integer)session.save(u);
+            id = (String)u.getUsername();
+            session.save(u);
             tx.commit();
         }catch(HibernateException he){
             if (tx!=null) tx.rollback();
@@ -57,6 +62,33 @@ public class ManageUsers {
             for (Iterator it = users.iterator(); it.hasNext();){
                 User user = (User) it.next();
                 if (user.getUsername().equals(id) && user.getPassword().equals(pass)){
+                    u = user;
+                    break;
+                }
+            }
+            tx.commit();
+            
+            
+        }catch(HibernateException he){
+            if (tx!=null) tx.rollback();
+            he.printStackTrace();
+        }
+        finally{
+            session.close();
+        }
+        return u;
+             
+    }
+    public User checkUsername(String id){
+        User u = null;
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            List users = session.createQuery("FROM User").list();
+            for (Iterator it = users.iterator(); it.hasNext();){
+                User user = (User) it.next();
+                if (user.getUsername().equals(id) ){
                     u = user;
                     break;
                 }

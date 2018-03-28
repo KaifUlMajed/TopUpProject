@@ -5,8 +5,6 @@
  */
 package controller;
 
-import dao.User;
-import database.ManageUsers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -18,9 +16,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Kaif Ul Majed
+ * @author Riad
  */
-public class RegProcess extends HttpServlet {
+public class LogoutProcess extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +37,10 @@ public class RegProcess extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet RegServlet</title>");            
+            out.println("<title>Servlet LogoutProcess</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet RegServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LogoutProcess at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -61,6 +59,10 @@ public class RegProcess extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
+        HttpSession session=request.getSession();
+        session.setAttribute("id", null);
+        RequestDispatcher view=request.getRequestDispatcher("index.jsp");
+        view.forward(request, response);
     }
 
     /**
@@ -74,39 +76,7 @@ public class RegProcess extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        response.setContentType("text/html");  
-          
-        RequestDispatcher view;
-        HttpSession session=request.getSession();
-        if(request.getParameter("username").equals("")|| request.getParameter("password").equals("")|| request.getParameter("address").equals("")|| request.getParameter("mobile").equals("")|| request.getParameter("email").equals("")){
-            session.setAttribute("registration", "Please Fill up all the fields.");
-            view=request.getRequestDispatcher("loginregistration.jsp");
-            view.forward(request, response);
-        }
-        if(!(request.getParameter("password").equals(request.getParameter("repass")))){
-            
-            session.setAttribute("registration", "Please Enter same Passwords");
-            view=request.getRequestDispatcher("loginregistration.jsp");
-            view.forward(request, response);
-        }
-        User u = new User(request.getParameter("username"), request.getParameter("password"), request.getParameter("address"), request.getParameter("mobile"), request.getParameter("email"));
-        ManageUsers mu = new ManageUsers();
-        String i = mu.addUser(u);
-        
-        if(i.equals("Username already exists!")){
-            session.setAttribute("registration", i);
-            view=request.getRequestDispatcher("loginregistration.jsp");
-            view.forward(request, response);
-        }
-        else if (i.equals((String)request.getParameter("username"))){
-            
-            session.setAttribute("registration", "Welcome "+i+", Login now to continue.");
-            view=request.getRequestDispatcher("loginregistration.jsp");
-            view.forward(request, response);
-        }
-        
-        
+        processRequest(request, response);
     }
 
     /**

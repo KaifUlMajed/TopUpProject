@@ -1,15 +1,9 @@
 <%-- 
-    Document   : loginregistration
-    Created on : Mar 24, 2018, 5:21:04 PM
-    Author     : Riad
+    Document   : index
+    Created on : Mar 24, 2018, 4:18:47 PM
+    Author     : Kaif Ul Majed
 --%>
-<%@ page import = "java.io.*,java.util.*" %>
-<%
-String msg=(String)session.getAttribute("registration");
-if(msg==null){
-    msg=" ";
-}
-%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +13,7 @@ if(msg==null){
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Shustho naki? - Login/SignUp</title>
+	<title>Shustho naki?</title>
 </head>
 <body>
 	<!-- ******* Nav Bar start ******** -->
@@ -36,7 +30,7 @@ if(msg==null){
 	        <div class="collapse navbar-collapse" id="myMenu">
 	            <ul class="nav navbar-nav navbar-right">
 					<li><a href="index.jsp">Home</a></li>
-					<li><a href="loginregistration.jsp">Login/SignUp</a></li>
+					<li><a href="LogRegServlet">Login/SignUp</a></li>
 	                <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order Now <span class="caret"></span>
 	                    </a>
@@ -54,34 +48,97 @@ if(msg==null){
 	</nav>
 	<!-- ******* Nav Bar end ******** -->	
 	<br><br><br>
-<section>
-    <div class="container">
-       <div class="row">
-        <div class="col-lg-6 col-sm-12">
-            <h1>Registration</h1>
-            <h2><%=msg%></h2>
-            <%session.setAttribute("registration", null);%>
-            <form action="RegProcess" method="POST">
-                <input type="text" name="username" placeholder="Username"/><br>
-                <input type="password" name="password" placeholder="Password"/><br>
-                <input type="password" name="repass" placeholder="Re-enter Password"/><br>
-                <input type="text" name="address" placeholder="Address"/><br>
-                <input type="text" name="mobile" placeholder="Mobile"/><br>
-                <input type="text" name="email" placeholder="E-mail"/><br>
-                <input type="submit" value="Register"/><br>
-            </form>
-        </div>
-        <div class="col-lg-6 col-sm-12">
-            <h1>Login </h1>
-            <form action="LoginProcess" method="POST">
-                <input type="text" name="username" placeholder="Username"/> <br>
-                <input type="password" name="password" placeholder="Password"/> <br>
-                <input type="submit" value="Login"/><br>
-            </form>                
-        </div>
-       </div> 
-    </div>
-</section>
+
+	<!-- ******* Slider start ******** -->
+	<section>
+	    <div class="container-fluid">
+	        <div class="row">
+                <div id="mainSlider" class="carousel slide" data-ride="carousel" data-interval="2200">
+                    <ol class="carousel-indicators">
+                        <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
+                        <li data-target="#mainSlider" data-slide-to="1"></li>
+                        <li data-target="#mainSlider" data-slide-to="2"></li>
+                        <li data-target="#mainSlider" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="images/pharma2.jpg" alt="" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h4>Mother and Child care</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/slider-image02.jpg" alt="" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h4>Mother and Child care</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/slider-image03.jpg" alt="" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h4>Mother and Child care</h4>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <img src="images/slider-image04.jpg" alt="" class="img-responsive">
+                            <div class="carousel-caption">
+                                <h4>Mother and Child care</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="#mainSlider" class="left carousel-control" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a href="#mainSlider" class="right carousel-control" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+	        </div>
+	    </div>
+	</section>
+	<!-- ******* Slider end ******** -->
+
+	<hr>
+
+	<!-- ***** Category gallery section start ***** -->
+	
+
+	<hr>
+
+	<!-- ***** Title and description section start***** -->
+	<section class="title-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12">
+                    <h1 class="text-center" style="color: white;">What's our Client Say?</h1>
+                    <hr>
+                    <div id="clientSlider" class="carousel slide" data-ride="carousel" data-interval="2000">
+                        <ol class="carousel-indicators">
+                            <li data-target="#clientSlider" data-slide-to="0" class="active"></li>
+                            <li data-target="#clientSlider" data-slide-to="1"></li>
+                            <li data-target="#clientSlider" data-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <h3>Some content goes here about client feedback.</h3>
+                            </div>
+                            <div class="item">
+                                <h3>This is one of the best seller company.</h3>
+                            </div>
+                            <div class="item">
+                                <h3>We are happy to serve our clients.</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+			</div>
+		</div>
+	</section>
+	<!-- ***** Title and description section end***** -->
+	
+	<hr>
+
+	
 
 	<hr>
 
@@ -115,9 +172,9 @@ if(msg==null){
 	                <h3>Popular links</h3>
 	                <hr>
 	                <ul class="popular-link">
-	                    <li><a href="index.jsp">Home</a></li>
-	                    <li><a href="about.jsp">About us</a></li>
-	                    <li><a href="contact.jsp">Contact us</a></li>
+	                    <li><a href="index.php">Home</a></li>
+	                    <li><a href="about.html">About us</a></li>
+	                    <li><a href="contact.html">Contact us</a></li>
 	                    <li><a href="">FAQ</a></li>
 	                    <li><a href="https://www.google.com.bd/maps/place/BRAC+University/@23.7801728,90.4050027,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c7715a40c603:0xec01cd75f33139f5!8m2!3d23.7801679!4d90.4071914?hl=en" target="_blank">Site map</a></li>
 	                </ul>
@@ -147,7 +204,7 @@ if(msg==null){
 	    <div class="container">
 	        <div class="row">
 	            <div class="col-sm-6 col-xs-6">
-	                <p>Copyright &copy; Team B.</p>
+	                <p>Copyright &copy; Team B, From <?php echo date("Y"); ?>.</p>
 	            </div>
 	            <div class="col-sm-6 col-xs-6">
 	                <div class="social-link" style="float: right;" >
@@ -159,11 +216,12 @@ if(msg==null){
 	        </div>
 	    </div>
 	</section>
-	<!-- ***** Footer end ***** -->
-    <script src="js/jquerylib.js"></script>
+	<!-- ***** Footer start ***** -->
+
+
+
+	<script src="js/jquerylib.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/custom.js"></script>
 </body>
 </html>
-
-

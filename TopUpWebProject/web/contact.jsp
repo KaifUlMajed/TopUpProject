@@ -1,3 +1,10 @@
+<%-- 
+    Document   : contact
+    Created on : Mar 28, 2018, 4:34:36 PM
+    Author     : Riad
+--%>
+
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -129,9 +136,9 @@
 	                <h3>Popular links</h3>
 	                <hr>
 	                <ul class="popular-link">
-	                    <li><a href="index.php">Home</a></li>
-	                    <li><a href="about.html">About us</a></li>
-	                    <li><a href="contact.html">Contact us</a></li>
+	                    <li><a href="index.jsp">Home</a></li>
+	                    <li><a href="about.jsp">About us</a></li>
+	                    <li><a href="contact.jsp">Contact us</a></li>
 	                    <li><a href="">FAQ</a></li>
 	                    <li><a href="https://www.google.com.bd/maps/place/BRAC+University/@23.7801728,90.4050027,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c7715a40c603:0xec01cd75f33139f5!8m2!3d23.7801679!4d90.4071914?hl=en" target="_blank">Site map</a></li>
 	                </ul>

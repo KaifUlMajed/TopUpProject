@@ -1,9 +1,22 @@
 <%-- 
     Document   : index
-    Created on : Mar 24, 2018, 4:18:47 PM
-    Author     : Kaif Ul Majed
+    Created on : Mar 28, 2018, 3:31:14 PM
+    Author     : Riad
 --%>
-
+<%@ page import = "java.io.*,java.util.*" %>
+<% 
+    String id;
+    String ref;
+    
+if(session.getAttribute("id")!=null){
+    
+    id=(String)session.getAttribute("id");
+    ref="profile.jsp";
+}else{
+    id="Login/SignUp";
+    ref="LogRegServlet";
+}
+%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,12 +38,12 @@
 	                <span class="icon-bar"></span>
 	                <span class="icon-bar"></span>
 	            </button>
-	            <a href="index.php" class="navbar-brand"><img src="images/logomed.png" alt="logomed"></a>
+	            <a href="index.jsp" class="navbar-brand"><img src="images/logomed.png" alt="logomed"></a>
 	        </div>
 	        <div class="collapse navbar-collapse" id="myMenu">
 	            <ul class="nav navbar-nav navbar-right">
 					<li><a href="index.jsp">Home</a></li>
-					<li><a href="LogRegServlet">Login/SignUp</a></li>
+                                        <li><a href="<%=ref%>"><%out.print(id); %></a></li>
 	                <li class="dropdown">
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order Now <span class="caret"></span>
 	                    </a>
@@ -38,7 +51,12 @@
 	                        <li><a href="#">Add to cart</a></li>
 	                        <li><a href="#">Upload Prescription</a></li>
 	                    </ul>
-						<li><a href="index.php">Logout</a></li>
+                            <%
+                                if(session.getAttribute("id")!=null){
+                                   out.print("<li><a href=\"LogoutProcess\">Logout</a></li>"+"\n"); 
+                                }
+                            %>
+                        
                     </li>
 				</ul>
 				<input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
@@ -101,25 +119,7 @@
 	<hr>
 
 	<!-- ***** Category gallery section start ***** -->
-	<!-- <section>
-		<div class="container">
-			<div class="row thumbnail well text-center">
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-					<img src="images/mom-icon.png" alt="" class="img-thumbnail">
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-					<img src="images/diet-icon.png" alt="" class="img-thumbnail">
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-					<img src="images/drug-icon.png" alt="" class="img-thumbnail">
-				</div>
-				<div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-					<img src="images/syringe-icon.png" alt="" class="img-thumbnail">
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!-- ***** Category gallery section end ***** -->
+	
 
 	<hr>
 
@@ -156,23 +156,7 @@
 	
 	<hr>
 
-	<!-- ****** Mother's guide section start ****** -->
-	<!-- <section>
-		<div class="container">
-			<div class="row well">
-				<div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-					<img src="images/dc-img.jpg" class="img-responsive">
-				</div>
-				<div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
-					<h3>Mother's Guide during pregnancy</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quasi magnam suscipit doloribus sapiente unde laudantium facilis consequuntur iure commodi? Ut error ea....</p>
-					<br><br>
-					<a href="mother-guide.php" class="btn btn-info pull-right">View More Details</a>
-				</div>
-			</div>
-		</div>
-	</section> -->
-	<!-- ****** Mother's guide section end ****** -->
+	
 
 	<hr>
 
@@ -206,9 +190,9 @@
 	                <h3>Popular links</h3>
 	                <hr>
 	                <ul class="popular-link">
-	                    <li><a href="index.php">Home</a></li>
-	                    <li><a href="about.html">About us</a></li>
-	                    <li><a href="contact.html">Contact us</a></li>
+	                    <li><a href="index.jsp">Home</a></li>
+	                    <li><a href="about.jsp">About us</a></li>
+	                    <li><a href="contact.jsp">Contact us</a></li>
 	                    <li><a href="">FAQ</a></li>
 	                    <li><a href="https://www.google.com.bd/maps/place/BRAC+University/@23.7801728,90.4050027,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c7715a40c603:0xec01cd75f33139f5!8m2!3d23.7801679!4d90.4071914?hl=en" target="_blank">Site map</a></li>
 	                </ul>
@@ -259,3 +243,4 @@
 	<script src="js/custom.js"></script>
 </body>
 </html>
+
