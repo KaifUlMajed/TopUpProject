@@ -68,7 +68,7 @@ if(session.getAttribute("id")!=null){
         <div class="col-lg-6 col-sm-12">
             <h1>Add medicine</h1>
             
-            <form action="RegProcess" method="POST">
+            <form action="AdminServlet" method="POST">
                 <input type="text" name="name" placeholder="Name"/><br>
                 <input type="text" name="genericname" placeholder="Generic Name"/><br>
                 <input type="text" name="type" placeholder="Type of medicine"/><br>

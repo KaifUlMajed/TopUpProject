@@ -36,6 +36,18 @@ public class Medicine {
         this.image = image;
         this.quantity = quantity;
     }
+
+    public Medicine(String name, String generic_name, String type, String manufacturer, double price, int quantity) {
+        this.name = name;
+        this.generic_name = generic_name;
+        this.type = type;
+        this.manufacturer = manufacturer;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+
+    
     
     public int getId() {
         return id;
