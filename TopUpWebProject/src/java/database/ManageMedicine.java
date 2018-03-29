@@ -13,6 +13,7 @@ import dao.Medicine;
 import java.util.Iterator;
 import java.util.List;
 import org.hibernate.HibernateException;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.SessionFactory;
@@ -54,7 +55,9 @@ public class ManageMedicine {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            meds = session.createQuery("FROM Medicine M WHERE M.type=" + type).list();
+            Query q = session.createQuery("FROM Medicine M WHERE M.type= :mtype");
+            q.setParameter("mtype", type);
+            meds = q.list();
             tx.commit();
         }catch(HibernateException he){
             if (tx!=null) tx.rollback();
@@ -72,7 +75,7 @@ public class ManageMedicine {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            meds = session.createQuery("FROM Medicine M WHERE M.generic_name=" + gn).list();
+            meds = session.createQuery("FROM Medicine M WHERE M.generic_name=:gn" ).setParameter("gn", gn).list();
             tx.commit();
         }catch(HibernateException he){
             if (tx!=null) tx.rollback();
@@ -89,7 +92,7 @@ public class ManageMedicine {
         Transaction tx = null;
         try{
             tx = session.beginTransaction();
-            meds = session.createQuery("FROM Medicine M WHERE M.name=" + name).list();
+            meds = session.createQuery("FROM Medicine M WHERE M.name=:name" ).setParameter("name", name).list();
             tx.commit();
         }catch(HibernateException he){
             if (tx!=null) tx.rollback();

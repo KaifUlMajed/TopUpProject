@@ -80,6 +80,24 @@
         <section>
             <div class ="container">
                 <div class="row">
+                    <div class="col-lg-3">
+                        <ul>
+                            <li>
+                                <form action="ProductsServlet" method="POST">
+                                    <input type="hidden" name="cat" value="capsule"/>
+                                    <input type="submit" value="Capsule"/>
+                                </form>
+                            </li>
+                            <li>
+                                <form action="ProductsServlet" method="POST">
+                                    <input type="text" name="cat" hidden="true" value="tablet"/>
+                                    <input type="submit" value="Tablet"/>
+                                </form>                                
+                            </li>
+                            
+                        </ul>
+                    </div>
+                    <div class ="col-lg-9"
                     <h1>Our list of medicines</h1>
                     <table>
                         <tr>
@@ -99,6 +117,7 @@
                             </tr>
                         </c:forEach>
                     </table>
+                    </div>
                 </div>
             </div>
         </section>
