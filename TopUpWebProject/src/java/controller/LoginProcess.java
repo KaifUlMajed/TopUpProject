@@ -77,12 +77,20 @@ public class LoginProcess extends HttpServlet {
         //processRequest(request, response);
         response.setContentType("text/html");  
         PrintWriter out = response.getWriter();  
+        RequestDispatcher view;
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        if(username.equals("admin")&& password.equals("admin")){
+            HttpSession session=request.getSession();
+            session.setAttribute("id", username);
+            //response.sendRedirect("Loggedin");
+            view=request.getRequestDispatcher("admin.jsp");
+            view.forward(request, response);
+        }
         
         ManageUsers mu = new ManageUsers();
         User u = mu.getUser(username, password);
-        RequestDispatcher view;
+        
         if (u != null){
             //out.print("Welcome " + u.getUsername());
             HttpSession session=request.getSession();
