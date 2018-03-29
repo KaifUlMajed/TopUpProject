@@ -86,16 +86,19 @@ if(request.getParameter("cat")!=null){
         request.setAttribute("meds", meds);
         request.getRequestDispatcher("products.jsp").forward(request,response);        
 }else{
-    String name=(String)request.getAttribute("name");
-    String searchby=(String)request.getAttribute("searchby");
+    String name=(String)request.getParameter("medname");
+    String searchby=(String)request.getParameter("searchby");
+//    PrintWriter out=response.getWriter();
+//    out.print(name);
+//    out.print(searchby);
     ManageMedicine mm = new ManageMedicine();
     List <Medicine> meds=null;
-        if(searchby.equals("By Name")){
-            System.out.println("aa");
+        if(searchby.equals("name")){
+            
              meds = mm.getMedByName(name);
-        }else if(searchby.equals("By Generic Name")){
+        }else if(searchby.equals("genericname")){
              meds = mm.getMedByGenericName(name);
-        }else if(searchby.equals("By Type")){
+        }else if(searchby.equals("type")){
              meds = mm.getMedByType(name);
 }
         request.setAttribute("meds", meds);
