@@ -61,11 +61,15 @@ if(session.getAttribute("id")!=null){
 	</nav>
 	<!-- ******* Nav Bar end ******** -->	
 	<br><br><br>
-
+<%
+    String s=(String)session.getAttribute("addstatus");
+%>
 	<section>
     <div class="container">
        <div class="row">
         <div class="col-lg-6 col-sm-12">
+            <h2><%=s%></h2>
+            <%session.setAttribute("addstatus", " ");%>
             <h1>Add medicine</h1>
             
             <form action="AdminServlet" method="POST">
@@ -73,7 +77,7 @@ if(session.getAttribute("id")!=null){
                 <input type="text" name="genericname" placeholder="Generic Name"/><br>
                 <input type="text" name="type" placeholder="Type of medicine"/><br>
                 <input type="text" name="manufacturer" placeholder="Manufacturer"/><br>
-                <input type="number" name="price" placeholder="Price"/><br>
+                <input type="text" name="price" placeholder="Price"/><br>
                 <input type="number" name="quantity" placeholder="Quantity"/><br><br>
                 <input type="file" name="pic" accept="image/*"><br><br>
                 <input type="submit" value="Add to store"/><br>
