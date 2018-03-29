@@ -78,13 +78,30 @@ public class ProductsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-
+if(request.getParameter("cat")!=null){
         String type = request.getParameter("cat");
         ManageMedicine mm = new ManageMedicine();
         List <Medicine> meds = mm.getMedByType(type);
+        request.setAttribute("cat", null);
         request.setAttribute("meds", meds);
         request.getRequestDispatcher("products.jsp").forward(request,response);        
-        
+}else{
+    String name=(String)request.getAttribute("name");
+    String searchby=(String)request.getAttribute("searchby");
+    ManageMedicine mm = new ManageMedicine();
+    List <Medicine> meds=null;
+        if(searchby.equals("By Name")){
+            System.out.println("aa");
+             meds = mm.getMedByName(name);
+        }else if(searchby.equals("By Generic Name")){
+             meds = mm.getMedByGenericName(name);
+        }else if(searchby.equals("By Type")){
+             meds = mm.getMedByType(name);
+}
+        request.setAttribute("meds", meds);
+        request.getRequestDispatcher("products.jsp").forward(request,response);
+
+    }
     }
 
     /**
