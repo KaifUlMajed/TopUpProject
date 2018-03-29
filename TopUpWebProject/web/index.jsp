@@ -4,18 +4,18 @@
     Author     : Riad
 --%>
 <%@ page import = "java.io.*,java.util.*" %>
-<% 
+<%
     String id;
     String ref;
-    
-if(session.getAttribute("id")!=null){
-    
-    id=(String)session.getAttribute("id");
-    ref="profile.jsp";
-}else{
-    id="Login/SignUp";
-    ref="LogRegServlet";
-}
+
+    if (session.getAttribute("id") != null) {
+
+        id = (String) session.getAttribute("id");
+        ref = "profile.jsp";
+    } else {
+        id = "Login/SignUp";
+        ref = "LogRegServlet";
+    }
 %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -48,6 +48,7 @@ if(session.getAttribute("id")!=null){
 	                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Order Now <span class="caret"></span>
 	                    </a>
 	                    <ul class="dropdown-menu">
+                                <li><a href="ProductsServlet">Products</a></li>
 	                        <li><a href="#">Add to cart</a></li>
 	                        <li><a href="#">Upload Prescription</a></li>
 	                    </ul>

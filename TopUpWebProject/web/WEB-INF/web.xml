@@ -20,6 +20,10 @@
         <servlet-name>AdminServlet</servlet-name>
         <servlet-class>controller.AdminServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProductsServlet</servlet-name>
+        <servlet-class>controller.ProductsServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LogRegServlet</servlet-name>
         <url-pattern>/LogRegServlet</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
         <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductsServlet</servlet-name>
+        <url-pattern>/ProductsServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
