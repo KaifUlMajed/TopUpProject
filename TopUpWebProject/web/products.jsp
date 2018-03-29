@@ -62,7 +62,7 @@
                         </li>
                     </ul>
                             <input type = "text" name="medname" placeholder = "Type Medicine name here..." style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 30%;"/>
-                                   <select name="type" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;">
+                                   <select name="searchby" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;">
                                        <option value="name">By Name</option>
                                          <option value="genericname">By Generic Name</option>
                                         <option value="type">By Type</option>
