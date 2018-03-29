@@ -61,8 +61,17 @@
 
                         </li>
                     </ul>
-                    <input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
-                           <input type="button" value = "search" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;"/>
+                            <input type = "text" name="medname" placeholder = "Type Medicine name here..." style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 30%;"/>
+                                   <select name="type" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;">
+                                       <option value="name">By Name</option>
+                                         <option value="genericname">By Generic Name</option>
+                                        <option value="type">By Type</option>
+                                        
+                            </select>
+                            <form action="ProductsServlet" method="POST" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;">
+                                <input type="submit" value="Search"/><br>
+                            </form>
+                            
                 </div>
             </div>
         </nav>
