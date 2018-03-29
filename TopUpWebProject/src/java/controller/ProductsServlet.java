@@ -60,15 +60,10 @@ public class ProductsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // processRequest(request, response);
-        PrintWriter out = response.getWriter();
         ManageMedicine mm = new ManageMedicine();
         List <Medicine> meds = mm.getAllMeds();
-//        for (Medicine m : meds){
-//            out.println(m.getName());
-//        }
         request.setAttribute("meds", meds);
         request.getRequestDispatcher("products.jsp").forward(request,response);
-        out.close();
     }
 
     /**
@@ -82,7 +77,14 @@ public class ProductsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+
+        String type = request.getParameter("cat");
+        ManageMedicine mm = new ManageMedicine();
+        List <Medicine> meds = mm.getMedByType(type);
+        request.setAttribute("meds", meds);
+        request.getRequestDispatcher("products.jsp").forward(request,response);        
+        
     }
 
     /**
