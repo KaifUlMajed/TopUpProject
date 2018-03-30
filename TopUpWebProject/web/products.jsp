@@ -103,19 +103,29 @@
                     <h1>Our list of medicines</h1>
                     <table>
                         <tr>
+                            <th>ID</th>
                             <th>Name</th>
                             <th>Generic Name</th>
                             <th>Manufacturer</th>
                             <th>Type</th>
                             <th>Price(Tk.)</th>
+                            <th>Quantity</th>
                         </tr>                         
                         <c:forEach items="${meds}" var="med">   
                             <tr>
-                                <td>${med.name}</td>
+                                <td><c:out value="${med.id}" /></td>
+                                <td><c:out value="${med.name}" /></td>
                                 <td><c:out value="${med.generic_name}" /></td>
                                 <td><c:out value="${med.manufacturer}" /></td>
                                 <td><c:out value="${med.type}" /></td>
-                                <td><c:out value="${med.price}" /></td>                              
+                                <td><c:out value="${med.price}" /></td>
+                                <td>
+                                    <form action="cartServlet" method="POST">
+                                        <input type="number" name="quantity" placeholder="Quantity" min="0" max="${med.quantity}"/>
+                                        <input type="text" hidden="true" name="id" value="${med.id}"/>
+                                        <input type="submit" value="Add to cart"/><br>
+                                    </form>
+                                </td>
                             </tr>
                         </c:forEach>
                     </table>
