@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package database;
+package dao;
 
 /**
  *
  * @author Kaif Ul Majed
  */
-import dao.User;
+import model.User;
 import java.util.Iterator;
 import java.util.List;
 import org.hibernate.HibernateException;

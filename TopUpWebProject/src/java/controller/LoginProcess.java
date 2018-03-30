@@ -5,8 +5,8 @@
  */
 package controller;
 
-import dao.User;
-import database.ManageUsers;
+import model.User;
+import dao.ManageUsers;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
