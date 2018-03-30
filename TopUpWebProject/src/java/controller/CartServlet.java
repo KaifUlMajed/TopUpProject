@@ -5,12 +5,18 @@
  */
 package controller;
 
+import dao.ManageCart;
+import dao.ManageUsers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Cart;
+import model.User;
 
 /**
  *
@@ -72,12 +78,23 @@ public class CartServlet extends HttpServlet {
             throws ServletException, IOException {
         //processRequest(request, response);
         PrintWriter out=response.getWriter();
-        String quantity=(String)request.getParameter("quantity");
-        String id=(String)request.getParameter("id");
-        out.println(quantity);
-        out.print(id);
-    }
+        int quantity=Integer.parseInt((String)request.getParameter("quantity"));
+        int medid=Integer.parseInt((String)request.getParameter("id"));
+        ManageUsers mu = new ManageUsers();
+        HttpSession session=request.getSession();
+        User u = mu.checkUsername((String)session.getAttribute("id"));
+        int id=u.getId();
+        session.setAttribute("userid", id);
+        ManageCart mc=new ManageCart();
+        Cart c=new Cart(id, medid, quantity);
+        mc.addtoCart(c);
+        response.sendRedirect("/TopUpWebProject/ProductsServlet");
+//        RequestDispatcher view=getServletContext().getRequestDispatcher("/ProductsServlet");
+//        view.forward(request, response);
+//response.sendRedirect("/ProductsServlet");
 
+                
+    }
     /**
      * Returns a short description of the servlet.
      *
