@@ -9,6 +9,7 @@ import dao.ManageCart;
 import dao.ManageUsers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
+import model.Medicine;
 import model.User;
 
 /**
@@ -62,7 +64,15 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        //processRequest(request, response);
+        HttpSession session=request.getSession();
+        ManageUsers mu=new ManageUsers();
+        User u = mu.checkUsername((String)session.getAttribute("id"));
+        ManageCart mc=new ManageCart();
+        int id=u.getId();
+        List <Cart> cartitems = mc.viewCart(id);
+        request.setAttribute("cart", cartitems);
+        request.getRequestDispatcher("cartView.jsp").forward(request,response);
     }
 
     /**
@@ -88,7 +98,7 @@ public class CartServlet extends HttpServlet {
         ManageCart mc=new ManageCart();
         Cart c=new Cart(id, medid, quantity);
         mc.addtoCart(c);
-        response.sendRedirect("/TopUpWebProject/ProductsServlet");
+        //response.sendRedirect("/TopUpWebProject/ProductsServlet");
 //        RequestDispatcher view=getServletContext().getRequestDispatcher("/ProductsServlet");
 //        view.forward(request, response);
 //response.sendRedirect("/ProductsServlet");

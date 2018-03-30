@@ -50,7 +50,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="ProductsServlet">Products</a></li>
-                                <li><a href="#">Add to cart</a></li>
+                                <li><a href="cartServlet">View cart</a></li>
                                 <li><a href="#">Upload Prescription</a></li>
                             </ul>
                             <%
@@ -120,7 +120,7 @@
                                 <td><c:out value="${med.type}" /></td>
                                 <td><c:out value="${med.price}" /></td>
                                 <td>
-                                    <form action="cartServlet" method="POST">
+                                    <form action="cartServlet" method="POST" target="_self">
                                         <input type="number" name="quantity" placeholder="Quantity" min="0" max="${med.quantity}"/>
                                         <input type="text" hidden="true" name="id" value="${med.id}"/>
                                         <input type="submit" value="Add to cart"/><br>
