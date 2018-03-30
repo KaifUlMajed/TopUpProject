@@ -16,26 +16,27 @@ import javax.persistence.*;
 public class Item {
     @Id @GeneratedValue
     private int item_id;
-    private int order_id;
+    @ManyToOne
+    @JoinColumn(name="order_id")
+    private Order order;
     private int med_id;
     private int quantity;
 
     public Item() {
     }
 
-    public Item(int order_id, int med_id, int quantity) {
-        this.order_id = order_id;
+    public Item(Order order, int med_id, int quantity) {
+        this.order = order;
         this.med_id = med_id;
         this.quantity = quantity;
     }
-    
 
-    public int getOrder_id() {
-        return order_id;
+    public Order getOrder() {
+        return order;
     }
 
-    public void setOrder_id(int order_id) {
-        this.order_id = order_id;
+    public void setOrder(Order order) {
+        this.order = order;
     }
     
 
@@ -63,12 +64,12 @@ public class Item {
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    public boolean equals(Object obj) {
+    public boolean equals(Item obj) {
       if (obj == null) return false;
       if (!this.getClass().equals(obj.getClass())) return false;
 
       Item obj2 = (Item)obj;
-      if((this.item_id == obj2.getItem_id()) && (this.order_id ==obj2.getOrder_id())) {
+      if((this.item_id == obj2.getItem_id()) && (this.getOrder() == obj2.getOrder())) {
          return true;
       }
       return false;
@@ -76,7 +77,7 @@ public class Item {
    
    public int hashCode() {
       int tmp = 0;
-      tmp = ( item_id + order_id + med_id * quantity + "medicine").hashCode();
+      tmp = ( item_id + order.getOrder_id() + med_id * quantity + "medicine").hashCode();
       return tmp;
    }
     
