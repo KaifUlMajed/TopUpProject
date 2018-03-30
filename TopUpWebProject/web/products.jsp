@@ -115,7 +115,7 @@
                                 <td><c:out value="${med.generic_name}" /></td>
                                 <td><c:out value="${med.manufacturer}" /></td>
                                 <td><c:out value="${med.type}" /></td>
-                                <td><c:out value="${med.price}" /></td>
+                                <td><c:out value="${med.price}" /></td>                              
                             </tr>
                         </c:forEach>
                     </table>

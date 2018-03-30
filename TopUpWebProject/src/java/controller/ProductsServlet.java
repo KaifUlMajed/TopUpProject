@@ -5,8 +5,8 @@
  */
 package controller;
 
-import dao.Medicine;
-import database.ManageMedicine;
+import model.Medicine;
+import dao.ManageMedicine;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
