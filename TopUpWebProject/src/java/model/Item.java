@@ -17,7 +17,7 @@ public class Item {
     @Id @GeneratedValue
     private int item_id;
     @ManyToOne
-    @JoinColumn(name="order_id")
+    @JoinColumn(name="order_id", nullable=false)
     private Order order;
     private int med_id;
     private int quantity;

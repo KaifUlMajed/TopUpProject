@@ -11,7 +11,7 @@
     if (session.getAttribute("id") != null) {
 
         id = (String) session.getAttribute("id");
-        ref = "profile.jsp";
+        ref = "ProfileServlet";
     } else {
         id = "Login/SignUp";
         ref = "LogRegServlet";

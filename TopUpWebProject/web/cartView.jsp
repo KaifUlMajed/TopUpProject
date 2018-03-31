@@ -88,42 +88,33 @@
         <section>
             <div class ="container">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <ul>
-                            <li>
-                                <form action="ProductsServlet" method="POST">
-                                    <input type="hidden" name="cat" value="capsule"/>
-                                    <input type="submit" value="Capsule"/>
-                                </form>
-                            </li>
-                            <li>
-                                <form action="ProductsServlet" method="POST">
-                                    <input type="text" name="cat" hidden="true" value="tablet"/>
-                                    <input type="submit" value="Tablet"/>
-                                </form>                                
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <div class ="col-lg-9"
+                    <div class ="col-lg-12"
                     <h1>list of medicines in your cart</h1>
                     <table>
                         <tr>
-                            <th>Med ID</th>
-                           
-                            
+                            <th>Medicine Name</th>                                                   
                             <th>Quantity</th>
-                        </tr>                         
-                        <c:forEach items="${cart}" var="cart">   
+                            <th>Price</th>
+                        </tr>
+                        <c:set var="total" value="1"/>
+                        <c:forEach items="${cart}" var="cart" varStatus="status">
+                            <c:set var="med" value="${meds[status.index]}"/>
                             <tr>
-                                <td><c:out value="${cart.med_id}" /></td>
+                                <td><c:out value="${med.name}" /></td>
                                 <td><c:out value="${cart.quantity}" /></td>
-                                
+                                <td><c:out value="${Math.round(med.price * cart.quantity * 100.0)/100.0}"/></td>
+                                <c:set var="total" value="${total + Math.round(med.price * cart.quantity * 100.0)/100.0}"/>
                             </tr>
                         </c:forEach>
+                            <td>Total Price</td>
+                            <td></td>
+                            <td>${total}</td>
                     </table>
+                           
                     </div>
                 </div>
+                    <a href="ProductsServlet" class="btn btn-default">Continue Shopping</a>
+                    <a href="CheckoutServlet" class="btn btn-default">Proceed to Checkout</a>
             </div>
         </section>
         <section class="big-footer-section">

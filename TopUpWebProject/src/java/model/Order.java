@@ -22,21 +22,33 @@ public class Order {
     private String name;
     private String address;
     private String phone;
-    @OneToMany(mappedBy = "order")
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER)
     private List<Item> items;
+    private double price;
     private java.sql.Date date;
 
     public Order() {
     }
 
-    public Order(int customer_id, String name, String address, String phone, List<Item> items, Date date) {
+    public Order(int customer_id, String name, String address, String phone, List<Item> items, double price, Date date) {
         this.customer_id = customer_id;
         this.name = name;
         this.address = address;
         this.phone = phone;
         this.items = items;
+        this.price = price;
         this.date = date;
     }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+
 
     public int getOrder_id() {
         return order_id;

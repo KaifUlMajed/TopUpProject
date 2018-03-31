@@ -7,6 +7,7 @@ package controller;
 
 import dao.ManageCart;
 import dao.ManageMedicine;
+import dao.ManageOrder;
 import dao.ManageUsers;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,14 +20,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Cart;
+import model.Item;
 import model.Medicine;
+import model.Order;
 import model.User;
 
 /**
  *
- * @author Riad
+ * @author Kaif Ul Majed
  */
-public class CartServlet extends HttpServlet {
+public class CheckoutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -45,10 +48,10 @@ public class CartServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet cartServlet</title>");            
+            out.println("<title>Servlet CheckoutServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet cartServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CheckoutServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -74,15 +77,16 @@ public class CartServlet extends HttpServlet {
         ManageMedicine mm = new ManageMedicine();
         int id=u.getId();
         List <Cart> cartItems = mc.viewCart(id);
-        List <Medicine> meds = new ArrayList<Medicine>();
+        List <Medicine> meds = new ArrayList<>();
         for (Cart c : cartItems){
             Medicine m = mm.getMedById(c.getMed_id());
             meds.add(m);
         }
         request.setAttribute("cart", cartItems);
         request.setAttribute("meds", meds);
-        request.getRequestDispatcher("cartView.jsp").forward(request,response);
+        request.getRequestDispatcher("checkout.jsp").forward(request,response);
     }
+    
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -95,22 +99,46 @@ public class CartServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        int quantity=Integer.parseInt((String)request.getParameter("quantity"));
-        int medid=Integer.parseInt((String)request.getParameter("id"));
-        ManageUsers mu = new ManageUsers();
+        // processRequest(request, response);
         HttpSession session=request.getSession();
+        ManageUsers mu=new ManageUsers();
         User u = mu.getByUserName((String)session.getAttribute("id"));
-        int id=u.getId();
-        session.setAttribute("userid", id);
+        int id = u.getId();
         ManageCart mc=new ManageCart();
-        Cart c=new Cart(id, medid, quantity);
-        mc.addtoCart(c);
-        response.sendRedirect("/TopUpWebProject/ProductsServlet");
-
-
-                
+        List <Cart> cartItems = mc.viewCart(id);
+        ManageMedicine mm = new ManageMedicine();
+        List <Item> items = new ArrayList<>();
+        Order o = new Order();
+        double price = 0.0;
+        for (Cart c : cartItems){
+            Medicine m = mm.getMedById(c.getMed_id());
+            price = price + (m.getPrice() * c.getQuantity());
+            Item i = new Item(o, c.getMed_id(), c.getQuantity());
+            items.add(i);
+        }
+        o.setItems(items);
+        String fullAddress = request.getParameter("street") +","+request.getParameter("city")+","+request.getParameter("district")+"-"+request.getParameter("zip");
+        o.setAddress(fullAddress);
+        o.setCustomer_id(id);
+        o.setPrice(price);
+        o.setName(request.getParameter("name"));
+        o.setDate(new java.sql.Date(new java.util.Date().getTime()));
+        o.setPhone(request.getParameter("phone"));
+        ManageOrder mo = new ManageOrder();
+        Integer i = mo.addOrder(o);
+        PrintWriter out = response.getWriter();
+        response.setContentType("text/html");
+        if (i>0){
+            out.println("Order placed successfully");
+            mc.deleteCart(id);
+            response.sendRedirect(request.getContextPath());
+        }
+        else{
+            out.println("Order gone wrong");
+        }
+        
     }
+
     /**
      * Returns a short description of the servlet.
      *

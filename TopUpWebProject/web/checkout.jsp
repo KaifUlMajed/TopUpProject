@@ -1,7 +1,7 @@
 <%-- 
-    Document   : profile
-    Created on : Mar 28, 2018, 3:49:39 PM
-    Author     : Riad
+    Document   : checkout
+    Created on : Mar 31, 2018, 5:49:46 PM
+    Author     : Kaif Ul Majed
 --%>
 <%@ page import = "java.io.*,java.util.*" %>
 <%
@@ -22,14 +22,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/font-awesome.min.css">
-        <link rel="stylesheet" href="css/style.css">          <title>Shusthonaki? - Profile</title>
+        <link rel="stylesheet" href="css/style.css">        
+        <title>ShusthoNaki? - Checkout</title>
     </head>
     <body>
- <nav class="header navbar navbar-default navbar-fixed-top">
+        <nav class="header navbar navbar-default navbar-fixed-top">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myMenu">
@@ -75,28 +76,43 @@
                 </div>
             </div>
         </nav>
-       <div class="container">                     
-        <h1>Welcome to your profile</h1>
-        <h2>Order History</h2>
-        <table>
-            <th>Delivered to</th>
-            <th>Delivered on</th>
-            <th>Total Price</th>
-            <c:forEach items="${orders}" var="order">
-            <tr>
-            <td><c:out value="${order.address}"/></td>
-            <td><c:out value="${order.date}"/></td>
-            <td><c:out value="${order.price}"/></td>
-            </tr>
-            </c:forEach>
-            <c:forEach items="${items}" var="item">
-            <tr>
-            <td><c:out value="${item.med_id}"/></td>
-            <td><c:out value="${item.quantity}"/></td>
-            </tr>
-            </c:forEach>            
-        </table>
-       </div>
+<section>                        
+    <div class="container">                    
+        <h1>Billing Details</h1>
+        <form action="CheckoutServlet" method="POST">
+            <input type="text" name="name" placeholder="Full Name"/><br>
+            <input type="text" name="street" placeholder="Street Address"/><br>
+            <input type="text" name="city" placeholder="City"/>
+            <input type="text" name="district" placeholder="District"/>
+            <input type="text" name="zip" placeholder="Postcode/ZIP"/><br>
+            <input type="text" name="phone" placeholder="Contact Number"/><br>
+            <h2>Your Order Details Below</h2>
+            <table>
+                <tr>
+                    <th>Medicine Name</th>                                                   
+                    <th>Quantity</th>
+                    <th>Price</th>
+                </tr>
+                <c:set var="total" value="1"/>
+                <c:forEach items="${cart}" var="cart" varStatus="status">
+                    <c:set var="med" value="${meds[status.index]}"/>
+                    <tr>
+                        <td><c:out value="${med.name}" /></td>
+                        <td><c:out value="${cart.quantity}" /></td>
+                        <td><c:out value="${Math.round(med.price * cart.quantity * 100.0)/100.0}"/></td>
+                        <c:set var="total" value="${total + Math.round(med.price * cart.quantity * 100.0)/100.0}"/>
+                    </tr>
+                </c:forEach>
+                <td>Total Price</td>
+                <td></td>
+                <td>${total}</td>
+            </table>
+            <input type="submit" value="Place Order" class="btn btn-lg"/>
+        </form>
+    </div>
+</section>            
+            
+            
 <section class="big-footer-section">
             <div class="container">
                 <div class="row">
@@ -176,7 +192,6 @@
 
         <script src="js/jquerylib.js"></script>
         <script src="js/bootstrap.min.js"></script>
-        <script src="js/custom.js"></script>                
-        
+        <script src="js/custom.js"></script>                   
     </body>
 </html>

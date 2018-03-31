@@ -5,6 +5,7 @@
  */
 package dao;
 
+import java.util.Iterator;
 import java.util.List;
 import model.Cart;
 import org.hibernate.HibernateException;
@@ -61,5 +62,26 @@ public class ManageCart {
             session.close();
         }        
         return cart;
-    }     
+    }
+    public void deleteCart(int customer_id){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            List<Cart> cart = session.createQuery("FROM Cart C where C.customer_id=:cid").setParameter("cid",customer_id).list();
+            Iterator it = cart.iterator();
+            while (it.hasNext()){
+                Cart c = (Cart) it.next();
+                //c = (Cart)session.get(Cart.class, c.getCart_id());
+                session.delete(c);
+            }
+            tx.commit();
+        }catch(HibernateException he){
+            if (tx!=null) tx.rollback();
+            he.printStackTrace();
+        }
+        finally{
+            session.close();
+        }        
+    }
 }

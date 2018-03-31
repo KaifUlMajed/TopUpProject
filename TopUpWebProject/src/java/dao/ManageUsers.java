@@ -31,7 +31,7 @@ public class ManageUsers {
         }
     }
     public String addUser(User u){
-        User tmp=checkUsername(u.getUsername());
+        User tmp=getByUserName(u.getUsername());
         if(tmp!=null){
             return "Username already exists!";
         }
@@ -79,7 +79,7 @@ public class ManageUsers {
         return u;
              
     }
-    public User checkUsername(String id){
+    public User getByUserName(String name){
         User u = null;
         Session session = factory.openSession();
         Transaction tx = null;
@@ -88,7 +88,7 @@ public class ManageUsers {
             List users = session.createQuery("FROM User").list();
             for (Iterator it = users.iterator(); it.hasNext();){
                 User user = (User) it.next();
-                if (user.getUsername().equals(id) ){
+                if (user.getUsername().equals(name) ){
                     u = user;
                     break;
                 }
