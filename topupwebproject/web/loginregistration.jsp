@@ -72,7 +72,9 @@ if(s==null){
     <div class="container" id="reg">
         <div class="well">
   <h2 id="registration">Registration form</h2>
-  <form class="form-horizontal" action="/action_page.php" id="reg">
+  <h2><%=msg%></h2>
+  <%session.setAttribute("registration", null);%>
+  <form class="form-horizontal" action="RegProcess" id="reg" method="POST">
      <div class="form-group">
       <label class="control-label col-xs-2" for="pwd">Name:</label>
       <div class="col-xs-7">          

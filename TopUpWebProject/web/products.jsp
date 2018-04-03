@@ -50,7 +50,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="ProductsServlet">Products</a></li>
-                                <li><a href="cartServlet">View cart</a></li>
+                                <li><a href="CartServlet">View cart</a></li>
                                 <li><a href="#">Upload Prescription</a></li>
                             </ul>
                             <%
