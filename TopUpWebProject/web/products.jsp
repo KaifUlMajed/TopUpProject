@@ -120,7 +120,7 @@
                                 <td><c:out value="${med.type}" /></td>
                                 <td><c:out value="${med.price}" /></td>
                                 <td>
-                                    <form action="cartServlet" method="POST">
+                                    <form action="CartServlet" method="POST">
                                         <input type="number" name="quantity" placeholder="Quantity" min="0" max="${med.quantity}"/>
                                         <input type="text" hidden="true" name="id" value="${med.id}"/>
                                         <input type="submit" value="Add to cart"/><br>

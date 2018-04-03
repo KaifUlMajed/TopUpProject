@@ -23,9 +23,17 @@ if(s==null){
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Shustho naki? - Login/SignUp</title>
+        
+        <title>Shustho naki? - Login/SignUp</title>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
 </head>
 <body>
+    
 	<!-- ******* Nav Bar start ******** -->
 	<nav class="header navbar navbar-default navbar-fixed-top">
 	    <div class="container-fluid">
@@ -51,47 +59,99 @@ if(s==null){
 						
                     </li>
 				</ul>
-				<input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
-				<input type="button" value = "search" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;"/>
-	        </div>
+				<input type = "text" placeholder = "Type Medicine name here..." id="searchbox">
+                                <input type="button" class="btn btn-default" value = "search" id="stext">  
+                </div>
 	    </div>
 	</nav>
 	<!-- ******* Nav Bar end ******** -->	
 	<br><br><br>
-<section>
-    <div class="container">
-       <div class="row">
-        <div class="col-lg-6 col-sm-12">
-            <h1>Registration</h1>
-            <h2><%=msg%></h2>
-            <%session.setAttribute("registration", null);%>
-            <form action="RegProcess" method="POST">
-                <input type="text" name="username" placeholder="Username"/><br>
-                <input type="password" name="password" placeholder="Password"/><br>
-                <input type="password" name="repass" placeholder="Re-enter Password"/><br>
-                <input type="text" name="address" placeholder="Address"/><br>
-                <input type="text" name="mobile" placeholder="Mobile"/><br>
-                <input type="text" name="email" placeholder="E-mail"/><br>
-                <input type="submit" value="Register"/><br>
-            </form>
-        </div>
-        <div class="col-lg-6 col-sm-12">
-            
-            
-            <h1>Login </h1>
-            <h2><%=s%></h2>
-            <%session.setAttribute("loginstatus", null);%>
-            <form action="LoginProcess" method="POST">
-                <input type="text" name="username" placeholder="Username"/> <br>
-                <input type="password" name="password" placeholder="Password"/> <br>
-                <input type="submit" value="Login"/><br>
-            </form>                
-        </div>
-       </div> 
-    </div>
-</section>
 
-	<hr>
+        <section>
+        <div class="container-fluid" style="background-image:url(images/reg.jpg)">
+    <div class="container" id="reg">
+        <div class="well">
+  <h2 id="registration">Registration form</h2>
+  <form class="form-horizontal" action="/action_page.php" id="reg">
+     <div class="form-group">
+      <label class="control-label col-xs-2" for="pwd">Name:</label>
+      <div class="col-xs-7">          
+        <input type="text" class="form-control" placeholder="Enter Name" name="username">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="email">Email:</label>
+      <div class="col-xs-7">
+        <input type="email" class="form-control" placeholder="Enter email" name="email">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-xs-7">          
+        <input type="password" class="form-control" placeholder="Enter password" name="password">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Re-enter Password:</label>
+      <div class="col-xs-7">          
+        <input type="password" class="form-control" placeholder="Re-enter password" name="repass">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Address:</label>
+      <div class="col-xs-7">          
+        <input type="text" class="form-control" placeholder="Enter Address" name="address">
+      </div>
+    </div>
+      <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Mobile no:</label>
+      <div class="col-xs-7">          
+        <input type="text" class="form-control"  placeholder="Mobile no." name="mobile">
+      </div>
+    </div>
+      
+    
+    <div class="form-group">        
+      <div class="col-xs-11 text-center">
+        <button type="submit" class="btn btn-primary" value="Register">Register</button>
+      </div>
+    </div>
+  </form>
+    </div>
+    </div>
+
+        
+        <div class="container">
+            <div class="well-lg">
+                <h2 id="registration">Login</h2>
+                
+                <form class="formhorizontal" action="LoginProcess" method="POST" id="reg">
+                   <div class="form-group" id="signup">
+      <label class="control-label col-sm-2" for="pwd">Name:</label>
+      <div class="col-xs-7">          
+          <input type="text" class="form-control" placeholder="Enter Name" name="username"> 
+      </div>
+    </div>
+                    <br>
+                    <div class="form-group">
+      <label class="control-label col-sm-2" for="pwd">Password:</label>
+      <div class="col-xs-7">          
+        <input type="password" class="form-control" placeholder="Enter password" name="password" id="pass">
+      </div>
+    </div>
+                    <br><br>
+                    <div class="form-group">        
+      <div class="col-xs-11 text-center">
+        <button type="submit" class="btn btn-primary" value="Register">Login</button>
+      </div>
+    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        </section>
+     
+
 
 	<!-- ***** Big footer start ***** -->
 	<section class="big-footer-section">
@@ -147,7 +207,7 @@ if(s==null){
 	            </div>
 	        </div>
 	    </div>
-	</section>
+	</section> 
 	<!-- ***** Big footer end ***** -->
 
 	<!-- ***** Footer start ***** -->

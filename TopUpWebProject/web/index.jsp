@@ -11,7 +11,7 @@
     if (session.getAttribute("id") != null) {
 
         id = (String) session.getAttribute("id");
-        ref = "ProfileServlet";
+        ref = "profile.jsp";
     } else {
         id = "Login/SignUp";
         ref = "LogRegServlet";
@@ -26,7 +26,14 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/font-awesome.min.css">
 	<link rel="stylesheet" href="css/style.css">
-	<title>Shustho naki?</title>
+	<title>Shustho Naki?</title>
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+
 </head>
 <body>
 	<!-- ******* Nav Bar start ******** -->
@@ -60,8 +67,10 @@
                         
                     </li>
 				</ul>
-				<input type = "text" placeholder = "Type Medicine name here..."/ style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px; width: 50%;">
-				<input type="button" value = "search" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;"/>
+                            
+				<input type = "text" placeholder = "Type Medicine name here..." id="searchbox">
+                                <input type="button" class="btn btn-default" value = "search" id="stext">
+                            
 	        </div>
 	    </div>
 	</nav>
@@ -77,33 +86,28 @@
                         <li data-target="#mainSlider" data-slide-to="0" class="active"></li>
                         <li data-target="#mainSlider" data-slide-to="1"></li>
                         <li data-target="#mainSlider" data-slide-to="2"></li>
-                        <li data-target="#mainSlider" data-slide-to="3"></li>
+                        
                     </ol>
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img src="images/pharma2.jpg" alt="" class="img-responsive">
+                            <img src="images/slider-1st.jpg" alt="" class="img-responsive">
                             <div class="carousel-caption">
-                                <h4>Mother and Child care</h4>
-                            </div>
+                            <h1>WE CARE FOR YOUR HEALTH</h1>
+                        </div>
                         </div>
                         <div class="item">
-                            <img src="images/slider-image02.jpg" alt="" class="img-responsive">
+                            <img src="images/child.jpg" alt="" class="img-responsive">
                             <div class="carousel-caption">
-                                <h4>Mother and Child care</h4>
-                            </div>
+                            <h1>WE CARE FOR YOUR HEALTH</h1>
+                        </div>
                         </div>
                         <div class="item">
-                            <img src="images/slider-image03.jpg" alt="" class="img-responsive">
+                            <img src="images/slider-2nd.jpg" alt="" class="img-responsive" >
                             <div class="carousel-caption">
-                                <h4>Mother and Child care</h4>
-                            </div>
+                            <h1>WE CARE FOR YOUR HEALTH</h1>
                         </div>
-                        <div class="item">
-                            <img src="images/slider-image04.jpg" alt="" class="img-responsive">
-                            <div class="carousel-caption">
-                                <h4>Mother and Child care</h4>
-                            </div>
                         </div>
+                        
                     </div>
                     <a href="#mainSlider" class="left carousel-control" data-slide="prev">
                         <span class="glyphicon glyphicon-chevron-left"></span>
@@ -116,51 +120,44 @@
 	    </div>
 	</section>
 	<!-- ******* Slider end ******** -->
-
-	<hr>
-
-	<!-- ***** Category gallery section start ***** -->
-	
-
-	<hr>
-
+        
 	<!-- ***** Title and description section start***** -->
-	<section class="title-section">
+	<div class="parallax">
+        <section class="title-section">
+            
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12">
-                    <h1 class="text-center" style="color: white;">What's our Client Say?</h1>
-                    <hr>
-                    <div id="clientSlider" class="carousel slide" data-ride="carousel" data-interval="2000">
-                        <ol class="carousel-indicators">
-                            <li data-target="#clientSlider" data-slide-to="0" class="active"></li>
-                            <li data-target="#clientSlider" data-slide-to="1"></li>
-                            <li data-target="#clientSlider" data-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <div class="item active">
-                                <h3>Some content goes here about client feedback.</h3>
+                            
+                            <div class="col-2"></div>
+                            <div class="col-8 text-center" id="review">
+                                <h1>What's Our Client Say?? </h1>
                             </div>
-                            <div class="item">
-                                <h3>This is one of the best seller company.</h3>
-                            </div>
-                            <div class="item">
-                                <h3>We are happy to serve our clients.</h3>
-                            </div>
+			</div>
+                </div>
+            <div class="container" id="customer">
+                    <div class="row">
+                       
+                        <div class="col-4 ">
+                            
+                            <p>Lorem ipsum dolor sit amet,consectetur adipiscing elit. 
+                                Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. <br>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+</p>
+                        </div>
+                        <div class="col-4 ">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+</p>
+                        </div>
+                        <div class="col-4 ">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
+</p>
+                        </div>
                         </div>
                     </div>
-                </div>
-			</div>
+        </section>
 		</div>
-	</section>
+	
 	<!-- ***** Title and description section end***** -->
 	
-	<hr>
-
-	
-
-	<hr>
-
 	<!-- ***** Big footer start ***** -->
 	<section class="big-footer-section">
 	    <div class="container">
