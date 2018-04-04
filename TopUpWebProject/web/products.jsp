@@ -29,6 +29,11 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">        
         <title>ShusthoNaki? - Products</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     </head>
     <body>
         <nav class="header navbar navbar-default navbar-fixed-top">
@@ -82,27 +87,12 @@
         <section>
             <div class ="container">
                 <div class="row">
-                    <div class="col-lg-3">
-                        <ul>
-                            <li>
-                                <form action="ProductsServlet" method="POST">
-                                    <input type="hidden" name="cat" value="capsule"/>
-                                    <input type="submit" value="Capsule"/>
-                                </form>
-                            </li>
-                            <li>
-                                <form action="ProductsServlet" method="POST">
-                                    <input type="text" name="cat" hidden="true" value="tablet"/>
-                                    <input type="submit" value="Tablet"/>
-                                </form>                                
-                            </li>
-                            
-                        </ul>
-                    </div>
-                    <div class ="col-lg-9"
-                    <h1>Our list of medicines</h1>
-                    <table>
-                        <tr>
+                    
+                    <div class ="col-lg-10">
+                    <h1 class="text-center" id="listhead">Our list of medicines</h1>
+                    <table class="table table-bordered table-hover">
+                        <thead>
+                        <tr class="bg-primary">
                             <th>ID</th>
                             <th>Name</th>
                             <th>Generic Name</th>
@@ -110,7 +100,9 @@
                             <th>Type</th>
                             <th>Price(Tk.)</th>
                             <th>Quantity</th>
-                        </tr>                         
+                        </tr> 
+                        </thead>
+                        <tbody>
                         <c:forEach items="${meds}" var="med">   
                             <tr>
                                 <td><c:out value="${med.id}" /></td>
@@ -123,12 +115,32 @@
                                     <form action="CartServlet" method="POST">
                                         <input type="number" name="quantity" placeholder="Quantity" min="0" max="${med.quantity}"/>
                                         <input type="text" hidden="true" name="id" value="${med.id}"/>
-                                        <input type="submit" value="Add to cart"/><br>
+                                        <button type="submit" class="btn btn-info" value="Add to cart"/>Add to cart</button> <br>
                                     </form>
                                 </td>
                             </tr>
                         </c:forEach>
+                        </tbody>
                     </table>
+                    </div>
+                   
+                    <div class="col-xs-2" id="capsule">
+                        <ul>
+                            <li>
+                                <form action="ProductsServlet" method="POST">
+                                    <input type="hidden" name="cat" value="capsule"/>
+                                    <button type="submit" class="btn btn-default" value="Capsule" />Capsule</button>
+                                </form>
+                            </li>
+                            
+                            <li>
+                                <form action="ProductsServlet" method="POST">
+                                    <input type="text" name="cat" hidden="true" value="tablet"/>
+                                    <button type="submit" class="btn btn-default" value="Tablet"/>Tablet </button>
+                                </form>                                
+                            </li>
+                            
+                        </ul>
                     </div>
                 </div>
             </div>

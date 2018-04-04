@@ -35,6 +35,11 @@
         <link rel="stylesheet" href="css/font-awesome.min.css">
         <link rel="stylesheet" href="css/style.css">        
         <title>ShusthoNaki? - Products</title>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     </head>
     <body>
         <nav class="header navbar navbar-default navbar-fixed-top">
@@ -85,17 +90,29 @@
         </nav>
         <!-- ******* Nav Bar end ******** -->	
         <br><br><br>
+        <div class="container-fluid" style="background-image:url(images/cart.png)">
+        <div class="container">
+        <div class="row">
+            <div class="col-12">
+           <h1 id="carthead">List of medicines in your cart</h1>
+        </div>
+        </div>
+        </div>
         <section>
             <div class ="container">
                 <div class="row">
-                    <div class ="col-lg-12"
-                    <h1>list of medicines in your cart</h1>
-                    <table>
-                        <tr>
+                  
+                    <div class ="col-lg-7" >
+                        
+                    <table class="table table-bordered table-striped" id="cart">
+                        <thead>
+                        <tr class="bg-primary">
+                        
                             <th>Medicine Name</th>                                                   
                             <th>Quantity</th>
                             <th>Price</th>
                         </tr>
+                        </thead>
                         <c:set var="total" value="1"/>
                         <c:forEach items="${cart}" var="cart" varStatus="status">
                             <c:set var="med" value="${meds[status.index]}"/>
@@ -110,13 +127,27 @@
                             <td></td>
                             <td>${total}</td>
                     </table>
+                        </div>
                            
-                    </div>
+                    
                 </div>
-                    <a href="ProductsServlet" class="btn btn-default">Continue Shopping</a>
-                    <a href="CheckoutServlet" class="btn btn-default">Proceed to Checkout</a>
-            </div>
+                    </div>
         </section>
+                    <section>
+                    <div class="container" id="continue">
+                        
+                            <div class="col-6">
+                    <a href="ProductsServlet" class="btn btn-primary">Continue Shopping</a>
+                    <a href="CheckoutServlet" class="btn btn-primary">Proceed to Checkout</a>
+                            
+                        </div>
+                    </div>
+                    </section>
+        </div>
+        
+                    
+                    
+        
         <section class="big-footer-section">
             <div class="container">
                 <div class="row">

@@ -79,7 +79,7 @@ public class ManageMedicine {
         try {
             tx = session.beginTransaction();
             Medicine med = (Medicine) session.get(Medicine.class, new Integer(id));
-            med.setQuantity(q);
+            med.setQuantity(med.getQuantity() - q);
             session.update(med);
             tx.commit();
         } catch (HibernateException e) {

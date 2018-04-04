@@ -69,7 +69,7 @@
 }
   h1{
      margin-top: 40px;
-     text-weight: bold;
+     font-weight: bold;
      font-size: 32px;
      font-family: sans-serif;
   }
@@ -101,19 +101,27 @@
      
 }
 
+#login{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .well{
   background-color: #B0E2FF;
   margin-top: 60px;
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  padding: 20px 0px 30px 0px;
 }
 
 .well-lg{
    background-color: #B0E2FF; 
-   margin-left: 50px;
-  margin-right: 50px;
+   margin-left: 200px;
+  margin-right: 200px;
   height: 260px;
   margin-bottom: 70px;
+  margin-top: 40px;
+  padding: 20px 0px 30px 0px;
 }
 
 #reg{
@@ -138,8 +146,48 @@
 }
 
 #pass{
-    width:480px;
-    margin-left: 7px;
+    width:475px;
+    margin-left: 3px;
+}
+#listhead{
+    font-weight:bold;
+    padding: 10px;
+    margin-left: 80px;
+}
+.table{
+    margin-bottom: 120px;
+    margin-left: 45px;
+}
+#capsule{
+    margin-top: 105px;
+    
+    
+}
+
+#cart{
+    margin-left: 220px;
+    margin-right: 60px;
+    padding-left: 80px;
+    margin-top: 10px;
+}
+
+#carthead{
+    margin-left: 329px;
+}
+
+#continue{
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px; 
+    padding: 0px;   
+}
+#checktb{
+    margin-left: 100px;
+}
+
+#orderbt{
+    margin-left: 100px;
+    margin-bottom: 20px;
 }
 
 .big-footer-section {

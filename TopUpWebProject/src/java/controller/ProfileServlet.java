@@ -9,6 +9,7 @@ import dao.ManageOrder;
 import dao.ManageUsers;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -70,12 +71,12 @@ public class ProfileServlet extends HttpServlet {
         User u = mu.getByUserName((String)session.getAttribute("id"));
         ManageOrder mo = new ManageOrder();
         List<Order> orders = mo.getOrders(u.getId());
-        List<Item> items = orders.get(0).getItems();
-//        for (Item i : items){
-//            out.println(i.getMed_id());
-//            out.println(i.getQuantity());
-//        }
-//        out.close();
+        List<List<Item>> items = new ArrayList<>();
+        for (Order o : orders){
+            items.add(o.getItems());
+        }
+
+
         request.setAttribute("orders", orders);
         request.setAttribute("items", items);
         request.getRequestDispatcher("profile.jsp").forward(request, response);

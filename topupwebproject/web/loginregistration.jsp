@@ -126,7 +126,7 @@ if(s==null){
         <div class="container">
             <div class="well-lg">
                 <h2 id="registration">Login</h2>
-                
+                <h2><%=s%></h2>
                 <form class="formhorizontal" action="LoginProcess" method="POST" id="reg">
                    <div class="form-group" id="signup">
       <label class="control-label col-sm-2" for="pwd">Name:</label>

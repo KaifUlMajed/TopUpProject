@@ -131,6 +131,9 @@ public class CheckoutServlet extends HttpServlet {
         if (i>0){
             out.println("Order placed successfully");
             mc.deleteCart(id);
+            for (Item it : items){
+                mm.updateMedQuantity(it.getMed_id(), it.getQuantity());
+            }
             response.sendRedirect(request.getContextPath());
         }
         else{

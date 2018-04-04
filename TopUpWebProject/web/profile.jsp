@@ -11,7 +11,7 @@
     if (session.getAttribute("id") != null) {
 
         id = (String) session.getAttribute("id");
-        ref = "profile.jsp";
+        ref = "ProfileServlet";
     } else {
         id = "Login/SignUp";
         ref = "LogRegServlet";
@@ -75,27 +75,34 @@
                 </div>
             </div>
         </nav>
-       <div class="container">                     
+       <div class="container"> 
+           <div class ="row">
         <h1>Welcome to your profile</h1>
         <h2>Order History</h2>
+        <c:forEach items="${orders}" var="order" varStatus="status">
         <table>
             <th>Delivered to</th>
             <th>Delivered on</th>
             <th>Total Price</th>
-            <c:forEach items="${orders}" var="order">
+           
             <tr>
             <td><c:out value="${order.address}"/></td>
             <td><c:out value="${order.date}"/></td>
             <td><c:out value="${order.price}"/></td>
             </tr>
-            </c:forEach>
-            <c:forEach items="${items}" var="item">
+        </table>
+            <table>
+            <th>Medicine No.</th>
+            <th>Quantity</th>
+            <c:forEach items="${items[status.index]}" var="item">
             <tr>
             <td><c:out value="${item.med_id}"/></td>
             <td><c:out value="${item.quantity}"/></td>
             </tr>
             </c:forEach>            
         </table>
+        </c:forEach>
+           </div>
        </div>
 <section class="big-footer-section">
             <div class="container">
