@@ -67,16 +67,19 @@
 
                     </li>
                 </ul>
+                <div class="form-group">  
+                    <form action="ProductsServlet" method="POST" style="float: left; padding: 6px;border: none;margin-top: 8px;margin-left: 16px;font-size: 17px;">      
 
-                <form action="ProductsServlet" method="POST" style="width: 50%;margin-top: 10px">      
-                    <input type = "text" name="medname" placeholder = "Type Medicine name here..." style="float: left;border: none;font-size: 17px; padding:7px"/>
-                    <select name="searchby" style="float: left;margin-left: 16px;border: none;font-size: 17px; padding: 8px">
-                        <option value="name">By Name</option>
-                        <option value="genericname">By Generic Name</option>
-                        <option value="type">By Type</option>
-                    </select>
-                    <button type="submit" class="btn btn-default" value="Search" style="margin-left: 10px;">Search</button>
-                </form>
+                        <input type = "text" name="medname" class="form-control" placeholder = "Type Medicine name here..." style="float: left; padding: 6px;border: none;margin-top: 0px;margin-left: 0px;margin-bottom: 14px; font-size: 17px; width: 320px;"/>
+                        <select name="searchby" class="form-control" style="float: left; padding: 6px;border: none;margin-top: 0px;margin-left: 8px; margin-bottom: 14px;font-size: 17px; width: 120px;">
+                            <option value="name">By Name</option>
+                            <option value="genericname">By Generic Name</option>
+                            <option value="type">By Type</option>
+
+                        </select>
+                        <button type="submit" class="btn btn-default" value="Search" style="margin-left: 7px;"/>Search</button><br>
+                    </form>
+                </div>
 
 
             </div>
