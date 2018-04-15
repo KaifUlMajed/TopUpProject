@@ -29,13 +29,13 @@
             <div class="col-lg-6 col-sm-12">
 
 
-                <h1>Delete Medicine </h1>
+<!--                <h1>Delete Medicine </h1>
 
                 <form action="LoginProcess" method="POST">
                     <input type="text" name="name" placeholder="Name"/> <br>
                     <input type="text" name="type" placeholder="Type"/> <br><br>
                     <input type="submit" value="Delete"/><br>
-                </form>                
+                </form>                -->
             </div>
         </div> 
     </div>
