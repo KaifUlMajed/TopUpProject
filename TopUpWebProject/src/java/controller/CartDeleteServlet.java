@@ -5,21 +5,23 @@
  */
 package controller;
 
-import model.Medicine;
-import dao.ManageMedicine;
+import dao.ManageCart;
+import dao.ManageUsers;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.Cart;
+import model.User;
 
 /**
  *
  * @author Kaif Ul Majed
  */
-public class ProductsServlet extends HttpServlet {
+public class CartDeleteServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +40,10 @@ public class ProductsServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductsServlet</title>");
+            out.println("<title>Servlet CartDeleteServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductsServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CartDeleteServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +61,7 @@ public class ProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // processRequest(request, response);
-        ManageMedicine mm = new ManageMedicine();
-        List<Medicine> meds = mm.getAllMeds();
-        request.setAttribute("meds", meds);
-        request.getRequestDispatcher("products.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -77,34 +75,10 @@ public class ProductsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        if (request.getParameter("cat") != null) {
-            String type = request.getParameter("cat");
-            ManageMedicine mm = new ManageMedicine();
-            List<Medicine> meds = mm.getMedByType(type);
-            request.setAttribute("cat", null);
-            request.setAttribute("meds", meds);
-            request.getRequestDispatcher("products.jsp").forward(request, response);
-        } else {
-            String name = (String) request.getParameter("medname");
-            String searchby = (String) request.getParameter("searchby");
-//    PrintWriter out=response.getWriter();
-//    out.print(name);
-//    out.print(searchby);
-            ManageMedicine mm = new ManageMedicine();
-            List<Medicine> meds = null;
-            if (searchby.equals("name")) {
-
-                meds = mm.getMedByName(name);
-            } else if (searchby.equals("genericname")) {
-                meds = mm.getMedByGenericName(name);
-            } else if (searchby.equals("type")) {
-                meds = mm.getMedByType(name);
-            }
-            request.setAttribute("meds", meds);
-            request.getRequestDispatcher("products.jsp").forward(request, response);
-
-        }
+        int cart_id = Integer.parseInt((String) request.getParameter("delCart"));
+        ManageCart mc = new ManageCart();
+        mc.deleteMedFromCart(cart_id);
+        response.sendRedirect("/TopUpWebProject/CartServlet");
     }
 
     /**

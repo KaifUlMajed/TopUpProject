@@ -63,6 +63,44 @@ public class ManageCart {
         }        
         return cart;
     }
+    
+    public void deleteMedFromCart(int cart_id){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        
+        try{
+            tx = session.beginTransaction();
+            Cart c = (Cart) session.get(Cart.class, cart_id);
+            session.delete(c);
+            tx.commit();
+        }catch(HibernateException he){
+            if (tx!=null) tx.rollback();
+            he.printStackTrace();
+        }
+        finally{
+            session.close();
+            
+        }   
+    }
+    public void updateQuantityInCart(int cart_id, int quantity){
+        Session session = factory.openSession();
+        Transaction tx = null;
+        
+        try{
+            tx = session.beginTransaction();
+            Cart c = (Cart) session.get(Cart.class, cart_id);
+            c.setQuantity(quantity);
+            session.save(c);
+            tx.commit();
+        }catch(HibernateException he){
+            if (tx!=null) tx.rollback();
+            he.printStackTrace();
+        }
+        finally{
+            session.close();
+            
+        }      
+    }
     public void deleteCart(int customer_id){
         Session session = factory.openSession();
         Transaction tx = null;

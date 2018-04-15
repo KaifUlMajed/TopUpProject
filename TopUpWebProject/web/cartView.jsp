@@ -29,10 +29,10 @@
                     <table class="table table-bordered table-striped" id="cart">
                         <thead>
                             <tr class="bg-primary">
-
                                 <th>Medicine Name</th>                                                   
                                 <th>Quantity</th>
                                 <th>Price</th>
+                                <th>Options</th>
                             </tr>
                         </thead>
                         <c:set var="total" value="1"/>
@@ -40,9 +40,23 @@
                             <c:set var="med" value="${meds[status.index]}"/>
                             <tr>
                                 <td><c:out value="${med.name}" /></td>
-                                <td><c:out value="${cart.quantity}" /></td>
-                                <td><c:out value="${Math.round(med.price * cart.quantity * 100.0)/100.0}"/></td>
+                            <form method="POST" action="CartUpdateServlet">
+                                <td>
+                                    <input type="number" name="updQuantity" placeholder=<c:out value="${cart.quantity}" /> >
+                                    <input type="number" name="updCart" value="${cart.cart_id}" hidden>
+                                </td>
+                                <td>
+                                    <c:out value="${Math.round(med.price * cart.quantity * 100.0)/100.0}"/>
+                                </td>
                                 <c:set var="total" value="${total + Math.round(med.price * cart.quantity * 100.0)/100.0}"/>
+                                <td>
+                                    <input type="submit" value="Update">
+                            </form>
+                            <form action="CartDeleteServlet" method="POST">
+                                <input type="number" name="delCart" value="${cart.cart_id}" hidden>
+                                <input type="submit" value="Delete">
+                            </form>
+                            </td>
                             </tr>
                         </c:forEach>
                         <td>Total Price</td>

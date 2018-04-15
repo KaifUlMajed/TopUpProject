@@ -45,7 +45,7 @@ public class CartServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet cartServlet</title>");            
+            out.println("<title>Servlet cartServlet</title>");
             out.println("</head>");
             out.println("<body>");
             out.println("<h1>Servlet cartServlet at " + request.getContextPath() + "</h1>");
@@ -67,21 +67,21 @@ public class CartServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        HttpSession session=request.getSession();
-        ManageUsers mu=new ManageUsers();
-        User u = mu.getByUserName((String)session.getAttribute("id"));
-        ManageCart mc=new ManageCart();
+        HttpSession session = request.getSession();
+        ManageUsers mu = new ManageUsers();
+        User u = mu.getByUserName((String) session.getAttribute("id"));
+        ManageCart mc = new ManageCart();
         ManageMedicine mm = new ManageMedicine();
-        int id=u.getId();
-        List <Cart> cartItems = mc.viewCart(id);
-        List <Medicine> meds = new ArrayList<Medicine>();
-        for (Cart c : cartItems){
+        int id = u.getId();
+        List<Cart> cartItems = mc.viewCart(id);
+        List<Medicine> meds = new ArrayList<Medicine>();
+        for (Cart c : cartItems) {
             Medicine m = mm.getMedById(c.getMed_id());
             meds.add(m);
         }
         request.setAttribute("cart", cartItems);
         request.setAttribute("meds", meds);
-        request.getRequestDispatcher("cartView.jsp").forward(request,response);
+        request.getRequestDispatcher("cartView.jsp").forward(request, response);
     }
 
     /**
@@ -96,21 +96,21 @@ public class CartServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         //processRequest(request, response);
-        int quantity=Integer.parseInt((String)request.getParameter("quantity"));
-        int medid=Integer.parseInt((String)request.getParameter("id"));
+        int quantity = Integer.parseInt((String) request.getParameter("quantity"));
+        int medid = Integer.parseInt((String) request.getParameter("id"));
         ManageUsers mu = new ManageUsers();
-        HttpSession session=request.getSession();
-        User u = mu.getByUserName((String)session.getAttribute("id"));
-        int id=u.getId();
+        HttpSession session = request.getSession();
+        User u = mu.getByUserName((String) session.getAttribute("id"));
+        int id = u.getId();
         session.setAttribute("userid", id);
-        ManageCart mc=new ManageCart();
-        Cart c=new Cart(id, medid, quantity);
+        ManageCart mc = new ManageCart();
+        Cart c = new Cart(id, medid, quantity);
         mc.addtoCart(c);
         response.sendRedirect("/TopUpWebProject/ProductsServlet");
 
-
-                
     }
+
+
     /**
      * Returns a short description of the servlet.
      *

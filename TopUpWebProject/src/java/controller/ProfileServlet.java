@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.ManageMedicine;
 import dao.ManageOrder;
 import dao.ManageUsers;
 import java.io.IOException;
@@ -17,6 +18,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Item;
+import model.Medicine;
 import model.Order;
 import model.User;
 
@@ -72,13 +74,22 @@ public class ProfileServlet extends HttpServlet {
         ManageOrder mo = new ManageOrder();
         List<Order> orders = mo.getOrders(u.getId());
         List<List<Item>> items = new ArrayList<>();
+        ManageMedicine mm = new ManageMedicine();        
+        List<List<Medicine>> meds = new ArrayList<>();
+        
         for (Order o : orders){
             items.add(o.getItems());
+            List <Medicine> m = new ArrayList<>();
+            for (Item i : o.getItems()){
+                m.add(mm.getMedById(i.getMed_id()));
+            }
+            meds.add(m);
         }
-
-
+        
+        
         request.setAttribute("orders", orders);
         request.setAttribute("items", items);
+        request.setAttribute("meds", meds);
         request.getRequestDispatcher("profile.jsp").forward(request, response);
     
         

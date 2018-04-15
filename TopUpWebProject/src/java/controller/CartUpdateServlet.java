@@ -5,11 +5,9 @@
  */
 package controller;
 
-import model.Medicine;
-import dao.ManageMedicine;
+import dao.ManageCart;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Kaif Ul Majed
  */
-public class ProductsServlet extends HttpServlet {
+public class CartUpdateServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +36,10 @@ public class ProductsServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductsServlet</title>");
+            out.println("<title>Servlet CartUpdateServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductsServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CartUpdateServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -59,11 +57,7 @@ public class ProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // processRequest(request, response);
-        ManageMedicine mm = new ManageMedicine();
-        List<Medicine> meds = mm.getAllMeds();
-        request.setAttribute("meds", meds);
-        request.getRequestDispatcher("products.jsp").forward(request, response);
+        processRequest(request, response);
     }
 
     /**
@@ -77,34 +71,14 @@ public class ProductsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //processRequest(request, response);
-        if (request.getParameter("cat") != null) {
-            String type = request.getParameter("cat");
-            ManageMedicine mm = new ManageMedicine();
-            List<Medicine> meds = mm.getMedByType(type);
-            request.setAttribute("cat", null);
-            request.setAttribute("meds", meds);
-            request.getRequestDispatcher("products.jsp").forward(request, response);
-        } else {
-            String name = (String) request.getParameter("medname");
-            String searchby = (String) request.getParameter("searchby");
-//    PrintWriter out=response.getWriter();
-//    out.print(name);
-//    out.print(searchby);
-            ManageMedicine mm = new ManageMedicine();
-            List<Medicine> meds = null;
-            if (searchby.equals("name")) {
-
-                meds = mm.getMedByName(name);
-            } else if (searchby.equals("genericname")) {
-                meds = mm.getMedByGenericName(name);
-            } else if (searchby.equals("type")) {
-                meds = mm.getMedByType(name);
-            }
-            request.setAttribute("meds", meds);
-            request.getRequestDispatcher("products.jsp").forward(request, response);
-
-        }
+     //   processRequest(request, response);
+        int cart_id, quantity;
+        cart_id = Integer.parseInt(request.getParameter("updCart"));
+        quantity = Integer.parseInt(request.getParameter("updQuantity"));
+        ManageCart mc = new ManageCart();
+        mc.updateQuantityInCart(cart_id, quantity);
+        response.sendRedirect("/TopUpWebProject/CartServlet");
+     
     }
 
     /**

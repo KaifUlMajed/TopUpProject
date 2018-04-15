@@ -15,6 +15,7 @@
                 <br>
                 <c:forEach items="${orders}" var="order" varStatus="status">
                     <div class="col-xs-7 col-xs-offset-2 ">
+                        
                         <table class="table table-bordered">
 
                             <thead class="bg-primary">
@@ -30,16 +31,17 @@
                                 </tr>
                             </tbody>
                         </table>
+                                <h1>Order Details</h1>
                         <table class="table table-condensed table-hover">
                             <thead class="bg-primary">
                             <th>Medicine No.</th>
                             <th>Quantity</th>
                             </thead>
-                            <c:forEach items="${items[status.index]}" var="item">
+                            <c:forEach items="${meds[status.index]}" var="med" varStatus="status1">
                                 <tbody class="tpro">
-                                    <tr>
-                                        <td><c:out value="${item.med_id}"/></td>
-                                        <td><c:out value="${item.quantity}"/></td>
+                                    <tr> 
+                                        <td><c:out value="${med.name}"/></td>
+                                        <td><c:out value="${items.get(status.index).get(status1.index).quantity}"/></td>
                                     </tr>
                                 </tbody>
                             </c:forEach>            

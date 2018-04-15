@@ -36,6 +36,14 @@
         <servlet-name>ProfileServlet</servlet-name>
         <servlet-class>controller.ProfileServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CartDeleteServlet</servlet-name>
+        <servlet-class>controller.CartDeleteServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CartUpdateServlet</servlet-name>
+        <servlet-class>controller.CartUpdateServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LogRegServlet</servlet-name>
         <url-pattern>/LogRegServlet</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>ProfileServlet</servlet-name>
         <url-pattern>/ProfileServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartDeleteServlet</servlet-name>
+        <url-pattern>/CartDeleteServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CartUpdateServlet</servlet-name>
+        <url-pattern>/CartUpdateServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
