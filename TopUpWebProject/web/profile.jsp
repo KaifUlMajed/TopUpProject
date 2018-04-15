@@ -17,7 +17,7 @@
                     <div class="col-xs-7 col-xs-offset-2 ">
                         
                         <table class="table table-bordered">
-
+                            <h1>Order Number: ${status.index + 1}</h1>
                             <thead class="bg-primary" >
                             <th>Delivered to</th>
                             <th>Delivered on</th>
@@ -31,10 +31,10 @@
                                 </tr>
                             </tbody>
                         </table>
-                                <h1>Order Details</h1>
+                                <h3>Order Details</h3>
                         <table class="table table-condensed table-hover">
                             <thead class="bg-primary">
-                            <th>Medicine No.</th>
+                            <th>Medicine</th>
                             <th>Quantity</th>
                             </thead>
                             <c:forEach items="${meds[status.index]}" var="med" varStatus="status1">

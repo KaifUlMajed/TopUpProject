@@ -12,13 +12,13 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <h3>Emergency Contact</h3>
                 <hr>
-                <span><b>Flat: </b>A1</span><br>
-                <span><b>House: </b>37</span><br>
-                <span><b>Road: </b>27</span><br>
-                <span>Block A, Banani</span><br>
-                <span>Dhaka-1213</span><br>
-                <span class="glyphicon glyphicon-phone"></span> : +8801511111111<br>
-                <span class="glyphicon glyphicon-envelope"></span> : mother.child@gmail.com<br>
+                <span><b>Building: </b>UB4</span><br>
+                <span><b>Room: </b>302</span><br>
+                <span><b>Road </b>66 Mohakhali</span><br>
+                <span></span><br>
+                <span>Dhaka-1212</span><br>
+                <span class="glyphicon glyphicon-phone"></span> : +8801713315111<br>
+                <span class="glyphicon glyphicon-envelope"></span> : kaiful_majed@gmail.com<br>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <h3>Why choose us</h3>
@@ -38,8 +38,6 @@
                 <ul class="popular-link">
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="about.jsp">About us</a></li>
-                    <li><a href="contact.jsp">Contact us</a></li>
-                    <li><a href="">FAQ</a></li>
                     <li><a href="https://www.google.com.bd/maps/place/BRAC+University/@23.7801728,90.4050027,17z/data=!3m1!4b1!4m5!3m4!1s0x3755c7715a40c603:0xec01cd75f33139f5!8m2!3d23.7801679!4d90.4071914?hl=en" target="_blank">Site map</a></li>
                 </ul>
             </div>
