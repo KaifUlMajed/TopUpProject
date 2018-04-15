@@ -44,9 +44,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a href="index.jsp" class="navbar-brand"><img src="images/logomed.png" alt="logomed"></a>
-                <span style="font-size: 28px;color: white;">ShusthoNaki? - The Online Pharmacy</span>
+                <span style="font-size: 24px;color: white;">ShusthoNaki?</span><br>
+                <span style="font-size: 12px;color: white;">An online pharmacy</span>
             </div>
             <div class="collapse navbar-collapse" id="myMenu">
                 <ul class="nav navbar-nav navbar-right">
