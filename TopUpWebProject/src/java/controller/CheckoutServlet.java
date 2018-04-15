@@ -134,7 +134,7 @@ public class CheckoutServlet extends HttpServlet {
             for (Item it : items){
                 mm.updateMedQuantity(it.getMed_id(), it.getQuantity());
             }
-            response.sendRedirect(request.getContextPath());
+            request.getRequestDispatcher("finish.jsp").forward(request,response);
         }
         else{
             out.println("Order gone wrong");

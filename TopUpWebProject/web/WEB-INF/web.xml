@@ -44,6 +44,10 @@
         <servlet-name>CartUpdateServlet</servlet-name>
         <servlet-class>controller.CartUpdateServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>FinishServlet</servlet-name>
+        <servlet-class>controller.FinishServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LogRegServlet</servlet-name>
         <url-pattern>/LogRegServlet</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>CartUpdateServlet</servlet-name>
         <url-pattern>/CartUpdateServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FinishServlet</servlet-name>
+        <url-pattern>/FinishServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

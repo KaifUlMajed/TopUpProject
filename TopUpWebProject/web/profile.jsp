@@ -18,7 +18,7 @@
                         
                         <table class="table table-bordered">
 
-                            <thead class="bg-primary">
+                            <thead class="bg-primary" >
                             <th>Delivered to</th>
                             <th>Delivered on</th>
                             <th>Total Price</th>

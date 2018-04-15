@@ -1,9 +1,9 @@
-<%-- 
-    Document   : about
-    Created on : Mar 28, 2018, 4:33:58 PM
-    Author     : Riad
---%>
 
+<%-- 
+    Document   : footer
+    Created on : Apr 15, 2018, 6:46:23 PM
+    Author     : Nahid Hossain
+--%>
 <%@ include file="header.jsp" %> 
 <br><br><br>
 
@@ -14,50 +14,56 @@
             <div class="row">
                 <h4 class="col-lg-12">Naba Afrin</h4>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="images/mom-icon.png" class="img-thumbnail">
+                    <img src="images/mom-icon.jpg" class="img-thumbnail">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quasi magnam suscipit doloribus sapiente unde laudantium facilis consequuntur iure commodi? Ut error ea, quaerat illo. Porro labore, ut soluta dolorem.</p>
+                    <p>She is one of the SQA engineer in our team. As a Software Quality Analyst she is best at her job.</p>
+              <p>something@gmail.com </p>
                 </div>
             </div>
+            
             <hr style="border-width: 2px; border-color: #D3D3D3;">
             <div class="row">
                 <h4 class="col-lg-12">Mohammad Kaif Ul Majed</h4>
                 <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit sed voluptatum, voluptas beatae ea. Delectus molestiae deleniti enim reprehenderit, hic quos tempore ipsum harum labore quis culpa eos perspiciatis quidem.</p>
+                    <p>He is one of the lead developer of our team. He has a great experience on this field.</p>
+              <p> mizanshaity@gmail.com</p>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="images/diet-icon.png" class="img-thumbnail">
+                    <img src="images/diet-icon.jpg" class="img-thumbnail">
                 </div>
             </div>
             <hr style="border-width: 2px; border-color: #D3D3D3;">
             <div class="row">
                 <h4 class="col-lg-12">Mariam Granthi</h4>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="images/drug-icon.png" class="img-thumbnail">
+                    <img src="images/drug-icon.jpg" class="img-thumbnail">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio quasi magnam suscipit doloribus sapiente unde laudantium facilis consequuntur iure commodi? Ut error ea, quaerat illo. Porro labore, ut soluta dolorem.</p>
+                    <p>She is the Graphic Designer of our team.</p>
+                    <p>something@gmail.com </p>
                 </div>
             </div>
             <hr style="border-width: 2px; border-color: #D3D3D3;">
             <div class="row">
                 <h4 class="col-lg-12">Md. Jamiul Alam Khan</h4>
                 <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit sed voluptatum, voluptas beatae ea. Delectus molestiae deleniti enim reprehenderit, hic quos tempore ipsum harum labore quis culpa eos perspiciatis quidem.</p>
+                    <p>He is one of the lead developer of our team. He has a great experience on this field.</p>
+              <p>jamiulalam95@gmail.com </p>
                 </div>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="images/syringe-icon.png" class="img-thumbnail">
+                    <img src="images/syringe-icon.jpg" class="img-thumbnail">
                 </div>
             </div>
             <hr style="border-width: 2px; border-color: #D3D3D3;">
             <div class="row">
-                <h4 class="col-lg-12">Ebong Nahid</h4>
+                <h4 class="col-lg-12">Nahid Hossain</h4>
                 <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-                    <img src="images/exercise-icon.png" class="img-thumbnail">
+                    <img src="images/exercise-icon.jpg" class="img-thumbnail">
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-6 col-xs-12">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odit sed voluptatum, voluptas beatae ea. Delectus molestiae deleniti enim reprehenderit, hic quos tempore ipsum harum labore quis culpa eos perspiciatis quidem.</p>
+                    <p>He is the junior software developer of our team.</p>
+                    <p>abongnahid@gmail.com </p>
                 </div>
             </div>
         </div>

@@ -46,9 +46,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a href="index.jsp" class="navbar-brand"><img src="images/logomed.png" alt="logomed"></a>
+                <span style="font-size: 28px;color: white;">ShusthoNaki? - The Online Pharmacy</span>
             </div>
             <div class="collapse navbar-collapse" id="myMenu">
                 <ul class="nav navbar-nav navbar-right">
+                    
                     <li><a href="index.jsp">Home</a></li>
                     <li><a href="<%=ref%>"><%out.print(id); %></a></li>
                     <li class="dropdown">

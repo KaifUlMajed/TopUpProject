@@ -15,21 +15,23 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="images/slider-1st.jpg" alt="" class="img-responsive">
+                        <img src="images/slider-1st.jpg" alt=""  class="img-responsive">
                         <div class="carousel-caption">
-                            <h1>WE CARE FOR YOUR HEALTH</h1>
+                            <h3>We Care For Your Health</h3>
                         </div>
                     </div>
                     <div class="item">
                         <img src="images/child.jpg" alt="" class="img-responsive">
                         <div class="carousel-caption">
-                            <h1>WE CARE FOR YOUR HEALTH</h1>
+
+                            <h3> Delivering medicine right to your door-step</h3>
+
                         </div>
                     </div>
                     <div class="item">
-                        <img src="images/slider-2nd.jpg" alt="" class="img-responsive" >
+                        <img src="images/slider-2nd.jpg" alt=""  class="img-responsive" >
                         <div class="carousel-caption">
-                            <h1>WE CARE FOR YOUR HEALTH</h1>
+                            <h3>Fast and Quality Delivery</h3>
                         </div>
                     </div>
 
@@ -55,26 +57,21 @@
 
                 <div class="col-2"></div>
                 <div class="col-8 text-center" id="review">
-                    <h1>What's Our Client Say?? </h1>
+                    <h1>Explore our vast range of Products</h1>
                 </div>
             </div>
         </div>
         <div class="container" id="customer">
             <div class="row">
 
-                <div class="col-4 ">
-
-                    <p>Lorem ipsum dolor sit amet,consectetur adipiscing elit. 
-                        Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. <br>Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                    </p>
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6 img">
+                    <a href="ProductsServlet"><img src="images/drug-icon.png" alt=""  class="img-responsive"></a>
                 </div>
-                <div class="col-4 ">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                    </p>
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
+                    <a href="ProductsServlet"><img src="images/syringe-icon.png" alt=""  class="img-responsive"></a>
                 </div>
-                <div class="col-4 ">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. 
-                    </p>
+                <div class="col-lg-4 col-md-3 col-sm-6 col-xs-6">
+                    <a href="ProductsServlet"><img src="images/diet-icon.png" alt=""  class="img-responsive"></a>
                 </div>
             </div>
         </div>

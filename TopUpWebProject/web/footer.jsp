@@ -23,13 +23,14 @@
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <h3>Why choose us</h3>
                 <hr>
-                <p>Some content goes here about why choose us
-                    Some content goes here about why choose us
-                    Some content goes here about why choose us
+                <p>We are the first online medicine store in Bangladesh.        
                 </p>
-                <p>Some content goes here about why choose us
-                    Some content goes here about why choose us
+                <p>We provide all kind of medicine.    
                 </p>
+                  <p>We deliver any medicine within 24 hours in any parts of Bangladesh.  
+                </p>
+                <p> 24x7 dedicated customer care service. </p>
+                <p> World class medicine in affordable price. </p>
             </div>
             <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
                 <h3>Popular links</h3>
@@ -87,3 +88,4 @@
 <script src="js/bootstrap.min.js"></script>
 <script src="js/custom.js"></script>
 </body>
+</html>

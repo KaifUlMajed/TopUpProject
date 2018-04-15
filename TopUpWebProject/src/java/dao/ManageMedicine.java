@@ -119,7 +119,7 @@ public class ManageMedicine {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            meds = session.createQuery("FROM Medicine M WHERE M.generic_name=:gn").setParameter("gn", gn).list();
+            meds = session.createQuery("FROM Medicine M WHERE M.generic_name like :gn").setParameter("gn", '%'+gn+'%').list();
             tx.commit();
         } catch (HibernateException he) {
             if (tx != null) {
@@ -138,7 +138,7 @@ public class ManageMedicine {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            meds = session.createQuery("FROM Medicine M WHERE M.name=:name").setParameter("name", name).list();
+            meds = session.createQuery("FROM Medicine M WHERE M.name like :name").setParameter("name", '%'+name+'%').list();
             tx.commit();
         } catch (HibernateException he) {
             if (tx != null) {
